@@ -61,6 +61,11 @@ Write `projects/content-engine/content/9-repurposed/{slug}/video-short.md` or
   article)
 - for long-form: a title and a one-line description
 
+**A script is not a video.** Say so in the closing message, in those words, and say what
+the video still needs: a recording in the person's own voice, or their go-ahead to use a
+voice or avatar tool they already have. Offer to cut the recording if this folder has an
+editing setup. Never present the script as the finished piece.
+
 Never use em dashes.
 
 Credit: the retention structure and format rules come from Tarek Reslan's video repurposing

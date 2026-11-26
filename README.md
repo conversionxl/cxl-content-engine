@@ -9,7 +9,7 @@ It is the content track's build in CXL's Marketing Engineer cohort, and it works
 - Find what to write next, from your own search data and from what your audience says in communities and reviews.
 - Take a keyword to a publish-ready first draft.
 - Refresh articles you have already published.
-- Turn a finished article into a carousel (built as slides: one image per slide and a PDF to upload), a video script or a newsletter edition.
+- Turn a finished article into a carousel (built as slides: one image per slide and a PDF to upload), a newsletter edition (built as a draft in your email tool, with the article's images) or a video script.
 - Make every article sound like **you**, by teaching it from your own best writing.
 - See every step of the work, so you can fix the one part that went wrong without starting over.
 
@@ -150,5 +150,5 @@ The full list is in [docs/how-this-was-made.md](docs/how-this-was-made.md).
   - [Build optimized B2B content funnels with AI](https://cxl.com/institute/online-courses/b2b-lead-generation-with-ai/), Andy Crestodina
   - [Bottom-of-funnel SEO strategies in tough niches](https://cxl.com/institute/online-course/bottom-of-funnel-seo-strategies-in-tough-niches/), Gaetano DiNardi
   - [Increase visibility and revenue from AI discovery engines](https://cxl.com/institute/live-course/increase-visibility-and-revenue-with-ai-discovery-engines/), Alex Birkett
-  - [Optimize pages for AI search with GEO](https://cxl.com/institute/online-courses/optimize-pages-for-ai-search-with-aeo-cohort/), Steve Toth
+  - Optimize pages for AI search with GEO, Steve Toth (no longer sold; CXL's current course on the subject is [AI visibility](https://cxl.com/institute/online-course/ai-visibility-brand-monitoring/))
 - **Ryan Law** and **Ahrefs**, for the pipeline structure: small skills chained in order, every step saved, one command per pipeline.

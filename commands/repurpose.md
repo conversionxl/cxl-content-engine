@@ -65,10 +65,22 @@ Save each output before starting the next.
 | Format | Skill | Output |
 |---|---|---|
 | `carousel` | **repurpose-carousel** | `projects/content-engine/content/9-repurposed/{slug}/carousel.md` (the copy), then `carousel/slide-N.png` and `carousel/carousel.pdf` (the slides, built once the copy is approved) |
-| `video` | **repurpose-video** (ask short or long-form if not said) | `.../9-repurposed/{slug}/video-short.md` or `video-long.md` |
-| `newsletter` | **repurpose-newsletter** | `.../9-repurposed/{slug}/newsletter.md` |
+| `video` | **repurpose-video** (ask short or long-form if not said) | `.../9-repurposed/{slug}/video-short.md` or `video-long.md`: a script and shot list. The video needs the person's recording |
+| `newsletter` | **repurpose-newsletter** (ask what the edition promotes at the end) | `.../9-repurposed/{slug}/newsletter.md` (the copy), then a draft in the person's email tool, or `newsletter.html` |
 
 ## Gate each piece
+
+**What done means, per format.** A text file is the copy, not the piece.
+
+| Format | Done when |
+|---|---|
+| Carousel | The slides exist as images and a PDF, and every slide has been looked at |
+| Newsletter | The edition is a draft in the email tool, or an HTML file, with its images in place |
+| Video | The script and shot list are approved, and the person has been told it still needs a recording |
+
+**Newsletter:** the gate runs on the copy. On approve, go back to the
+**repurpose-newsletter** skill for its second part, which builds the email. Nothing is
+scheduled or sent unless the person asks.
 
 **Carousel:** the gate runs on the copy. On approve, go back to the **repurpose-carousel**
 skill for its second part, which builds the slides and the PDF. A carousel is not done
