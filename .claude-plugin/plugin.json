@@ -1,7 +1,7 @@
 {
   "name": "content-engine",
-  "version": "0.6.0",
-  "description": "Content engine for B2B marketers, in four stages: find what to write from your search data, communities and reviews; create a researched, fact-checked article in your voice; refresh published ones; repurpose into carousels, video scripts and newsletters. Small skills chained into pipelines, every step saved to a file. Built on Ryan Law's (Ahrefs) approach, with CXL course tactics. Start with /content-engine:setup.",
+  "version": "0.6.1",
+  "description": "CXL's content engine for B2B marketers, in four stages: find what to write, create a researched and fact-checked article in your voice, refresh published ones, repurpose them. Built from CXL courses by Andy Crestodina, Gaetano DiNardi, Alex Birkett, Steve Toth and Tarek Reslan, on the pipeline structure Ryan Law documented at Ahrefs. Quality checks after each stage. Start with /content-engine:setup.",
   "author": {
     "name": "CXL",
     "email": "hesh@cxl.com"

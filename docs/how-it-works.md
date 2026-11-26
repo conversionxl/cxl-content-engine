@@ -4,8 +4,8 @@ This engine copies how a good content team actually works, and hands each part t
 focused skill. Understanding the ideas behind it will help you get more out of it and shape
 it to how you work.
 
-> The structure here is based on Ryan Law's content-engineering system at Ahrefs, then
-> upgraded for new users and B2B marketing. For the full story see
+> The method comes from CXL courses on B2B content, search and AI visibility. The pipeline
+> structure is based on Ryan Law's content-engineering system at Ahrefs. For the full story see
 > [how-this-was-made.md](how-this-was-made.md).
 
 ## The seven ideas it is built on

@@ -121,9 +121,9 @@ Rename skills, add steps, remove the parts you don't use. Then point Claude at y
 
 ## How this engine was built
 
-This engine began as a rebuild of the system **Ryan Law**, Director of Content Marketing at **Ahrefs**, documented in [How I Do Content Engineering with Claude Code](https://ahrefs.com/blog/how-i-do-content-engineering-with-claude-code/) and demoed on the [Ahrefs Podcast](https://www.youtube.com/watch?v=iVZrVeESnFQ) with Tim Soulo. The core structure is his: small skills chained into a pipeline, every step saving its output so you can debug it, a master command that runs them in order, and the idea that you take it and make it yours. Full credit and thanks to Ryan and Ahrefs.
+This engine has three sources. **The method is CXL's:** the tactics inside every step come from CXL courses by Andy Crestodina, Gaetano DiNardi, Alex Birkett, Steve Toth and Tarek Reslan, named below. **The stages before and after the article are Tarek Reslan's,** from his CXL courses. **The pipeline structure is Ryan Law's.** It began as a rebuild of the system Ryan Law, Director of Content Marketing at **Ahrefs**, documented in [How I Do Content Engineering with Claude Code](https://ahrefs.com/blog/how-i-do-content-engineering-with-claude-code/) and demoed on the [Ahrefs Podcast](https://www.youtube.com/watch?v=iVZrVeESnFQ) with Tim Soulo. The core structure is his: small skills chained into a pipeline, every step saving its output so you can debug it, a master command that runs them in order, and the idea that you take it and make it yours. Full credit and thanks to Ryan and Ahrefs.
 
-We then made four sets of changes:
+What CXL added to that structure, in four parts:
 
 **1. A guided setup.** Ryan's system assumes you already know your brand, voice and process. This one starts from placeholder files and a setup command that fills them from documents you already have, with a check that stops the engine running until it is yours.
 
@@ -144,11 +144,11 @@ The full list is in [docs/how-this-was-made.md](docs/how-this-was-made.md).
 
 ## Credits
 
-- **Ryan Law** and **Ahrefs**, for the content engineering approach this is built on.
 - **Nick Christensen**, for Acme Deals and its customer data ([ship-icp-ads-automate-monitoring](https://github.com/nickyc1/ship-icp-ads-automate-monitoring), MIT), the example brand.
 - **Tarek Reslan**, for the find and repurpose stages, from his CXL courses "Create research-backed and search-optimized content", "Detect trends through reviews and communities" and "Create and repurpose platform-native social content".
-- The **CXL courses** these tactics come from:
+- The **CXL courses** the method comes from:
   - [Build optimized B2B content funnels with AI](https://cxl.com/institute/online-courses/b2b-lead-generation-with-ai/), Andy Crestodina
   - [Bottom-of-funnel SEO strategies in tough niches](https://cxl.com/institute/online-course/bottom-of-funnel-seo-strategies-in-tough-niches/), Gaetano DiNardi
   - [Increase visibility and revenue from AI discovery engines](https://cxl.com/institute/live-course/increase-visibility-and-revenue-with-ai-discovery-engines/), Alex Birkett
   - [Optimize pages for AI search with GEO](https://cxl.com/institute/online-courses/optimize-pages-for-ai-search-with-aeo-cohort/), Steve Toth
+- **Ryan Law** and **Ahrefs**, for the pipeline structure: small skills chained in order, every step saved, one command per pipeline.
