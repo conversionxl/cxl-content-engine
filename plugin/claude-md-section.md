@@ -1,0 +1,37 @@
+
+
+---
+
+## Content engine
+
+<!-- Added by the content-engine plugin. Edit freely. -->
+
+**A keyword or a published URL in, a publish-ready article out.** The engine works through a chain of small, single-purpose skills. Each skill saves its output to a file, so you can review and fix one step without starting over.
+
+| Folder | What goes in it |
+|---|---|
+| `projects/content-engine/your-setup/` | Your brand and voice, your offer, your data sources, your CMS connection, and your best articles in `voice-examples/`. Filled in by `/content-engine:setup`. |
+| `projects/content-engine/inputs/` | `keywords.csv`, and `voice-of-customer/` for call transcripts, tickets and survey answers. Voice-of-customer files stay on this machine. |
+| `projects/content-engine/content/` | One numbered folder per step, one file per article, named by its slug. `updates/` holds the refresh flow. |
+
+| Command | What it does |
+|---|---|
+| `/content-engine:setup` | Adds the engine to this folder and personalises it: documents you already have first, questions only for the gaps. Run it again any time to change something. |
+| `/content-engine:blog-pipeline "keyword" [notes]` | New article: research, answer engine audit, outline, draft, claims check, preview. |
+| `/content-engine:update-pipeline "url" [notes]` | Refreshes a published article and shows the full new version with changes marked. |
+| `/content-engine:llms-brand-page` | One page that tells answer engines who you are, built from your setup and how AI describes you today. |
+
+**Rules for the engine:**
+- **Setup first.** If any file in `projects/content-engine/your-setup/` still holds `{{REPLACE_ME}}` or `<!-- SETUP_INCOMPLETE -->`, no content command or skill runs. Say so and point to `/content-engine:setup`. Never write against placeholder brand data.
+- **Read the setup before writing.** `brand-and-voice.md` (voice, tone, rules), `your-offer.md` (what you sell), `voice-examples/` (your best articles) and `data-sources.md`. The voice examples outrank every abstract rule: when in doubt about tone, match them.
+- **A brand brain outranks the questionnaire.** If `wiki/brand/` holds an ICP, positioning or voice file (from the Marketing Brain), setup reads those first and asks only for what they do not answer.
+- **Data sources are switches.** Built-in web search works for everyone. A tool marked `on` in `data-sources.md` (Ahrefs, Search Console, GA4) is preferred for its kind of data; a tool marked `off` is not used. Never invent keyword volumes, traffic or metrics: if a number cannot be retrieved, say so.
+- **Save every step** to its file in `projects/content-engine/content/`, also when the full pipeline runs.
+- **CMS reminder.** If `cms-connection.md` says `status: later` and `last_prompted` is seven or more days old, ask once whether to connect it now, then set `last_prompted` to today whatever the answer.
+- **Writing standards** (your `brand-and-voice.md` overrides them): plain, direct language, short sentences, active voice; no em dashes; no invented statistics, sources or quotes; the most useful point first; one call to action per article.
+- **The "average of the internet" test.** Before an article is called done: could the reader get the same piece from a one-line prompt? If yes, it is not worth publishing. Push it back toward your own data, point of view, customer language and examples.
+- **Write for answer engines, not only rankings.** Question or claim-shaped headers, a quotable answer at the start of each section, comparison tables, accurate product facts. Tracking how often AI names you over time is a different job: that is the AI visibility builds, not this engine.
+- **Your own folder names.** If `.claude/folders.json` exists, every folder named in this section is read at its mapped name.
+- **Make it yours.** These skills are a starting point. To change how a step works for good, download the repository and edit its `SKILL.md` (the advanced route in the README), or tell Claude the change you want for this run.
+
+Credits: the pipeline of chained skills, saved step outputs and the master command are Ryan Law's approach at Ahrefs. The B2B, voice-of-customer and answer engine tactics come from CXL courses by Andy Crestodina, Gaetano DiNardi, Alex Birkett and Steve Toth.

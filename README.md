@@ -1,54 +1,68 @@
-# The Content Engine
+# Content engine
 
-This is a content writing system you run on your own computer. You give it a topic
-or keyword, and it works through the same steps a senior content team would: research,
-outline, draft in your voice, fact-check, and hand you a finished article ready to review.
+A content writing system that runs inside Claude. You give it a keyword or a published URL, and it works through the steps a senior content team would: research, outline, draft in your voice, fact-check, and a finished article ready to review.
 
-It runs inside a free tool called Claude Code. You do not need to know how to code.
-You type plain English.
+It is the content track's build in CXL's Marketing Engineer cohort, and it works on its own too. You type plain English. You don't need to code.
 
 ## What you can do with it
 
-- Take a keyword and get a publish-ready first draft in about ten minutes.
-- Refresh and update articles you have already published.
+- Take a keyword to a publish-ready first draft.
+- Refresh articles you have already published.
 - Make every article sound like **you**, by teaching it from your own best writing.
-- See every step of the work, so you can fix the one part that went wrong instead of starting over.
+- See every step of the work, so you can fix the one part that went wrong without starting over.
+
+## Install the plugin (recommended)
+
+1. Open Claude: claude.ai or the desktop app ([claude.ai/download](https://claude.ai/download)).
+2. Open **Settings → Plugins**, click **Add → Add marketplace**, and choose the GitHub repo option.
+3. Enter `conversionxl/cxl-content-engine`, then add **Content engine**.
+4. Open your personal OS folder in the desktop app's **Code** tab, with **Environment** set to **Local**. No personal OS yet? Add the [Personal OS plugin](https://github.com/conversionxl/cxl-personal-os-plugins) first, or use any empty folder: the engine works on its own.
+5. Type `/content-engine:setup`.
+
+Install it one way only. The plugin is saved to your Claude account, so you add it once.
+
+**Can't add a marketplace?** Download [content-engine.zip](https://github.com/conversionxl/cxl-content-engine/releases/download/plugin-zips/content-engine.zip) and upload it in **Settings → Plugins → Upload**. Don't unzip it, and don't use the green **Code → Download ZIP** button for this: that file fails the upload check.
 
 ## The one rule: set it up first
 
-This engine ships with **placeholder** brand, voice, and product information. It will
-not write good content until you replace those placeholders with your own.
-
-You do not edit files by hand. You run one guided command and answer some questions:
+The engine ships with **placeholder** brand, voice and product information. It will not write until those are yours. You don't edit files by hand. You run one command and it does the work:
 
 ```
-/setup
+/content-engine:setup
 ```
 
-If you try to run the engine before setup is done, it will stop and remind you. That is
-on purpose.
+Setup adds a `projects/content-engine/` folder to your folder, then asks for documents you already have (a brand guide, an ICP, a product one-pager) and only asks questions for the gaps. If the Marketing Brain is in the same folder, it reads your brand brain first. It never overwrites a file. Run it again any time to change something.
 
-## How to install it
+## Commands
 
-Pick your computer and follow the steps. They assume you have never used GitHub,
-VS Code, or Claude Code before, and explain every click.
+| Command | What it does |
+|---|---|
+| `/content-engine:setup` | Adds the engine to your folder and personalises it |
+| `/content-engine:blog-pipeline "your keyword"` | New article, from research to a styled preview |
+| `/content-engine:update-pipeline "https://your-site.com/article"` | Refreshes a published article and shows the new version with changes marked |
+| `/content-engine:llms-brand-page` | One page that tells AI answer engines who you are |
 
-- **Mac:** open [START-HERE-MAC.md](START-HERE-MAC.md)
-- **Windows:** open [START-HERE-WINDOWS.md](START-HERE-WINDOWS.md)
+Anything you add after the keyword or URL steers the run: angles to take, products to feature, things to avoid.
 
-## After setup, your first article
+## Where your work goes
 
-In Claude Code, type:
+| Folder | What is in it |
+|---|---|
+| `projects/content-engine/your-setup/` | Your brand and voice, your offer, your data sources, your best articles |
+| `projects/content-engine/inputs/` | Keywords, and voice-of-customer material (kept on your machine) |
+| `projects/content-engine/content/` | One numbered folder per step, one file per article |
 
-```
-/blog-pipeline "your keyword here"
-```
+Already use your own folder names? The engine follows the folder map your personal OS saved in `.claude/folders.json`.
 
-That runs the whole pipeline. Want to update an existing article instead?
+## Download and customize (advanced)
 
-```
-/update-pipeline "https://your-site.com/the-article-to-refresh"
-```
+The plugin is a working example of a full build, and a base to copy from. If you want to change how the engine works and make it your own, download this repository and edit it:
+
+- Every step is one small file: `skills/<step>/SKILL.md`.
+- The pipelines that chain the steps are in `commands/`.
+- The files setup copies into your folder are in `template/`.
+
+Rename skills, add steps, remove the parts you don't use. Then point Claude at your copy: in a terminal session, `/plugin marketplace add <path to your copy>`. If you customize, use your copy only. Two copies installed side by side list every command twice.
 
 ## Learn how it works
 
@@ -58,54 +72,27 @@ That runs the whole pipeline. Want to update an existing article instead?
 
 ## How this engine was built
 
-This engine began as a fork of an idea from **Ryan Law**, Director of Content Marketing at
-**Ahrefs**. He documented his Claude Code content pipeline in his post
-[How I Do Content Engineering with Claude Code](https://ahrefs.com/blog/how-i-do-content-engineering-with-claude-code/)
-and demoed it on the [Ahrefs Podcast](https://www.youtube.com/watch?v=iVZrVeESnFQ) with Tim
-Soulo. The core structure here is his: small skills chained into a pipeline, every step
-saving its output so you can debug it, a master command that runs them in order, and a
-fork-and-personalise philosophy. Full credit and thanks to Ryan and Ahrefs.
+This engine began as a rebuild of the system **Ryan Law**, Director of Content Marketing at **Ahrefs**, documented in [How I Do Content Engineering with Claude Code](https://ahrefs.com/blog/how-i-do-content-engineering-with-claude-code/) and demoed on the [Ahrefs Podcast](https://www.youtube.com/watch?v=iVZrVeESnFQ) with Tim Soulo. The core structure is his: small skills chained into a pipeline, every step saving its output so you can debug it, a master command that runs them in order, and the idea that you take it and make it yours. Full credit and thanks to Ryan and Ahrefs.
 
 We then made three sets of changes:
 
-**1. A friendlier setup and onboarding flow.** Ryan's repo assumes you already know your
-brand, voice, and process. Ours is built for people setting this up for the first time:
-- **Plain-English install guides** for Mac and Windows that assume no prior GitHub, VS Code,
-  or Claude Code experience.
-- **Placeholder context files** in `your-setup/` (brand, voice, offer, data sources) with a
-  setup gate that stops the engine running until you have made it yours.
-- A guided **`/setup` command** that fills those files in for you. It asks for documents you
-  already have first (brand guide, ICP, product one-pager) and only asks questions for the
-  gaps, so you are not retyping things you already wrote down.
+**1. A guided setup.** Ryan's system assumes you already know your brand, voice and process. This one starts from placeholder files and a setup command that fills them from documents you already have, with a check that stops the engine running until it is yours.
 
-**2. Upgraded with tactics from four CXL courses.** We pulled the strongest ideas from CXL's
-content and search courses and baked them into the skills:
-- Start **bottom-of-funnel** and prioritise commercial intent over raw search volume.
-- Mine **voice of customer** (sales calls, interviews, tickets, reviews) for high-intent
-  topics and real buyer language that keyword tools miss.
-- Write for **answer engines** (ChatGPT, Perplexity, AI Overviews), not just rankings, so
-  your content gets cited, and keep your brand represented accurately in them.
-- Pass the **"average of the internet" test**: if a reader could get the same article from a
-  one-line prompt, it is not worth publishing. Lead with proprietary data and point of view.
+**2. Tactics from four CXL courses.**
+- Start **bottom-of-funnel** and put commercial intent ahead of raw search volume.
+- Mine **voice of customer** (sales calls, interviews, tickets, reviews) for high-intent topics and buyer language that keyword tools miss.
+- Write for **answer engines** (ChatGPT, Perplexity, AI Overviews), not only rankings, so your content gets cited and your brand is described accurately.
+- Pass the **"average of the internet" test**: if a reader could get the same article from a one-line prompt, it is not worth publishing.
 
-**3. Focused on B2B marketing.** Every skill is biased toward B2B: buyer-journey stages,
-decision factors (integrations, pricing, compliance, support), comparison content, and
-sourcing every competitor claim.
+**3. A focus on B2B marketing.** Every skill leans toward B2B: buyer-journey stages, decision factors (integrations, pricing, compliance, support), comparison content, and a source for every competitor claim.
 
-For the full list of what changed, see [docs/how-this-was-made.md](docs/how-this-was-made.md).
+The full list is in [docs/how-this-was-made.md](docs/how-this-was-made.md).
 
 ## Credits
 
-- **Ryan Law** and **Ahrefs**, for the original content-engineering approach this is built on.
-  Read his post: <https://ahrefs.com/blog/how-i-do-content-engineering-with-claude-code/>
+- **Ryan Law** and **Ahrefs**, for the content engineering approach this is built on.
 - The **CXL courses** these tactics come from:
   - [Build optimized B2B content funnels with AI](https://cxl.com/institute/online-courses/b2b-lead-generation-with-ai/), Andy Crestodina
   - [Bottom-of-funnel SEO strategies in tough niches](https://cxl.com/institute/online-course/bottom-of-funnel-seo-strategies-in-tough-niches/), Gaetano DiNardi
   - [Increase visibility and revenue from AI discovery engines](https://cxl.com/institute/live-course/increase-visibility-and-revenue-with-ai-discovery-engines/), Alex Birkett
   - [Optimize pages for AI search with GEO](https://cxl.com/institute/online-courses/optimize-pages-for-ai-search-with-aeo-cohort/), Steve Toth
-
-## Make it yours
-
-This is a starting point, not a finished product. You are meant to fork it, rename
-skills, add steps, and remove the parts you do not use. The more you shape it to how
-you actually work, the better it gets.

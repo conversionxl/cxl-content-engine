@@ -1,0 +1,9 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cxl-content-engine",
+  "description": "CXL's Content engine plugin for the Marketing Engineer cohort.",
+  "owner": { "name": "CXL", "email": "hesh@cxl.com" },
+  "plugins": [
+    { "name": "content-engine", "description": "Keyword or URL in, researched and fact-checked article in your voice out. Every step saved so you can fix it.", "source": "./", "category": "productivity" }
+  ]
+}

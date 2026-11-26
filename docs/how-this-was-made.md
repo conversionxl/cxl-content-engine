@@ -23,17 +23,19 @@ whole thing. Thank you to Ryan and Ahrefs.
 Ryan built his repo for himself. This one is built to hand to someone who has never used
 GitHub, VS Code, or Claude Code.
 
-- **`START-HERE-MAC.md` and `START-HERE-WINDOWS.md`:** click-by-click install guides, every
-  term explained on first use.
-- **The `your-setup/` folder with placeholder context files:** `brand-and-voice.md`,
+- **A plugin, since November 2026.** The first version was a repository you downloaded, with
+  click-by-click install guides. It now installs from Settings, Plugins, and sets itself up
+  inside your personal OS folder. Downloading the repository is still open to you, as the
+  route for people who want to change how the engine works.
+- **The `projects/content-engine/your-setup/` folder with placeholder context files:** `brand-and-voice.md`,
   `your-offer.md`, `data-sources.md`, and `cms-connection.md` ship with `{{REPLACE_ME}}`
   placeholders and a clear read-me explaining what a placeholder is.
 - **A setup gate:** the engine refuses to run the pipelines until those placeholders are
   filled, so nobody accidentally publishes in a generic or borrowed voice.
-- **The `/setup` command:** an interview that fills the placeholders for you. It leads with
+- **The `/content-engine:setup` command:** an interview that fills the placeholders for you. It leads with
   "what documents do you already have?" (brand guide, ICP, product one-pager, past briefs),
-  ingests those from `your-setup/source-docs/`, and only asks questions for what is missing.
-- **Voice learned from examples:** you drop your best articles into `your-setup/voice-examples/`
+  ingests those from `projects/content-engine/your-setup/source-docs/`, and only asks questions for what is missing.
+- **Voice learned from examples:** you drop your best articles into `projects/content-engine/your-setup/voice-examples/`
   and the engine infers what makes them yours, rather than asking you to describe your own voice.
 
 ### 2. Tactics from four CXL courses
@@ -58,13 +60,13 @@ These show up as upgrades across nearly every skill, plus three new pieces.
 ### 3. New skills and commands
 
 - **`voice-of-customer-mining`** (skill): turns sales calls, customer interviews, win/loss
-  calls, support tickets, surveys, and reviews from `inputs/voice-of-customer/` into
-  high-intent topics and real buyer language. Runs first in `/blog-pipeline` when material
+  calls, support tickets, surveys, and reviews from `projects/content-engine/inputs/voice-of-customer/` into
+  high-intent topics and real buyer language. Runs first in `/content-engine:blog-pipeline` when material
   is present, and nudges you to add some when it is not.
 - **`answer-engine-audit`** (skill): checks what ChatGPT, Perplexity, and AI Overviews say
   about a topic or your brand, and who they cite. Runs in both pipelines and feeds the brand
   page.
-- **`/llms-brand-page`** (command): generates an LLM-readable brand page so answer engines
+- **`/content-engine:llms-brand-page`** (command): generates an LLM-readable brand page so answer engines
   describe you accurately. It reuses `your-reference`, `answer-engine-audit`, and
   `verify-claims` rather than duplicating them.
 

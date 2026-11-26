@@ -14,9 +14,9 @@ of your articles and picking up how you actually write.
 
 1. Pick **5 to 10 of your best articles**. The ones that sound most like you and did well.
    A mix helps: a how-to, an opinion piece, a deep dive.
-2. Put them in `your-setup/voice-examples/` as `.md` or `.txt` files, or have links ready
+2. Put them in `projects/content-engine/your-setup/voice-examples/` as `.md` or `.txt` files, or have links ready
    to paste.
-3. Run `/setup`. When it reaches the voice step, it reads your examples and tells you what
+3. Run `/content-engine:setup`. When it reaches the voice step, it reads your examples and tells you what
    it found: how you open, your sentence rhythm, how you use evidence, your recurring moves.
 4. **Correct it.** If something it inferred does not feel right, say so. This back-and-forth
    is the point. Often it will name a pattern you did not realise you had.
@@ -30,5 +30,5 @@ proposes. You end up with instructions you never had to write yourself.
 
 ## Keep it fresh
 
-As your writing evolves, swap in newer examples and run `/setup` again. The engine updates
+As your writing evolves, swap in newer examples and run `/content-engine:setup` again. The engine updates
 what it knows about your voice. Your best recent work is always the best teacher.

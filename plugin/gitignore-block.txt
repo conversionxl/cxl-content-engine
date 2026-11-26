@@ -1,0 +1,6 @@
+# Content engine: voice-of-customer material (call transcripts, tickets, surveys)
+# and the source documents you share during setup stay on this machine.
+@P@/inputs/voice-of-customer/*
+!@P@/inputs/voice-of-customer/READ-ME.md
+@P@/your-setup/source-docs/*
+!@P@/your-setup/source-docs/READ-ME.md

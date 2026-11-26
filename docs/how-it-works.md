@@ -12,13 +12,13 @@ it to how you work.
 
 **1. Chain small skills, do not use one big prompt.**
 Each step (research, outline, draft, and so on) is its own skill with one job. Chained
-together by `/blog-pipeline`, they take a keyword to a finished draft. You can also run any
+together by `/content-engine:blog-pipeline`, they take a keyword to a finished draft. You can also run any
 one on its own.
 
 **2. Save the output of every step.**
 If the final article is off, you do not start over. You open the saved file from each step,
 find where it went wrong, fix that step, and continue from there. Every step writes to the
-`content/` folder for exactly this reason.
+`projects/content-engine/content/` folder for exactly this reason.
 
 **3. Keep skills lean, and test them.**
 Modern models are good. Sometimes a long, detailed skill produces worse results than a short
@@ -44,13 +44,13 @@ work, the better it gets.
 
 ## The pipelines and commands
 
-- **Creation:** `/blog-pipeline "keyword"` runs (optional) voice-of-customer-mining,
+- **Creation:** `/content-engine:blog-pipeline "keyword"` runs (optional) voice-of-customer-mining,
   research, answer-engine-audit, your-reference, outline, product-mentions, draft,
   verify-claims, (optional visuals), and preview.
-- **Update:** `/update-pipeline "url"` runs extract, guidance, answer-engine-audit, the three
+- **Update:** `/content-engine:update-pipeline "url"` runs extract, guidance, answer-engine-audit, the three
   audits (claims, product mentions, topic gaps), update-draft, and a full preview of the new
   article with changes marked inline.
-- **Brand page:** `/llms-brand-page` builds an LLM-readable brand page so answer engines
+- **Brand page:** `/content-engine:llms-brand-page` builds an LLM-readable brand page so answer engines
   describe you accurately. Run it once, then refresh when your offer changes.
 
 ## What it is good for, and what it is not
