@@ -84,9 +84,13 @@ on your own scores.
 
 | Result | When |
 |---|---|
-| **FIX** | A must-pass row fails (yours, or a decision model's), or a code check fails |
-| **REVIEW** | No must-pass row fails, and two or more other rows fail, or a decision model disagrees with you on any row |
+| **FIX** | A must-pass row fails for you, or for every decision model that ran, or a code check fails |
+| **REVIEW** | Not a FIX, and two or more other rows fail, or the checkers disagree on any row (you with a decision model, or one decision model with the other) |
 | **PASS** | Everything else |
+
+One decision model failing a must-pass row on its own is a disagreement, not a FIX. The
+first real run showed why: Jev failed "every number names its source" on five items that
+Clef and Claude passed. Name the row and the checker, and let the person look.
 
 ## Output
 
