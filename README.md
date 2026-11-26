@@ -70,7 +70,7 @@ Use something else for one of these jobs, such as Semrush or Plausible? Name it 
 
 ## Quality gates
 
-The engine checks its own work at three points, against yes or no checks built from CXL courses. Each gate returns PASS, REVIEW or FIX with the rows behind it, and then you decide.
+The engine checks its own work at three points, against yes or no checks built from CXL courses. The order is always the same: step, gate, your decision, next step. Each gate says Ready, Needs a look or Needs fixing in plain words, with what to fix and where. Then it stops and asks you to approve, update or stop. A checked piece carries a status line at its top, so you can always tell whether it was edited after its check.
 
 | Gate | When | What it asks |
 |---|---|---|

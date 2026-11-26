@@ -1,6 +1,6 @@
 ---
 name: quality-gate
-description: Run one of the content engine's three quality gates on a piece of work, and return PASS, REVIEW or FIX with the rows behind it. Strategy gate on an opportunity, draft gate on an article, channel gate on a carousel, video script or newsletter. Uses a decision model (Jev or Clef) as a second check when one is switched on. Use when a command reaches a gate, or when asked to gate, check or score a piece.
+description: Run one of the content engine's three quality gates on a piece of work. Returns a plain verdict (Ready, Needs a look or Needs fixing) with what to fix and where, then stops and asks the person to approve, update or stop. Strategy gate on an opportunity list, draft gate on an article, channel gate on a carousel, video script or newsletter. Uses a decision model (Jev or Clef) as a second check when one is switched on. Use when a command reaches a gate, or when asked to check a piece.
 ---
 
 # Quality gate
@@ -100,21 +100,91 @@ One decision model failing a must-pass row on its own is a disagreement, not a F
 first real run showed why: Jev failed "every number names its source" on five items that
 Clef and Claude passed. Name the row and the checker, and let the person look.
 
-## Output
+## Output: written for someone who has two minutes
 
-Write `projects/content-engine/content/gates/{gate}-{slug}-{YYYY-MM-DD}.md`, and show the
-same in the chat:
+The person reading this did not watch the gate run. They need three things at a glance: is
+it good, what is wrong, and what do I do. Write for that reader.
 
-1. **The result,** in one line, with who checked: "REVIEW. Checked by Claude and Jev."
-2. **The table:** row, your score, the decision model's answer if any, and the evidence.
-   Fails and disagreements first.
-3. **What to do,** only for fails and disagreements: one line each, naming the section and
-   the fix, or the step of the pipeline to send it back to.
-4. **What was not checked** and why (no decision model, a model without a key, a call that
-   failed).
+**Rules for the wording**
 
-Then stop and ask the person what they want to do: fix it, send it back to a step, or carry
-on as it is. A FIX does not block them. It tells them what it costs to carry on.
+- Name each check in plain words ("Every claim has a source"), never by its code (D2, S5).
+  Codes appear only in the details table at the very end.
+- No probabilities in the main part. "Jev disagrees" is enough. Numbers go in the details.
+- One line per item. No paragraphs.
+- Say what to do about every problem. A problem with no fix next to it is noise.
+
+**Write `projects/content-engine/content/gates/{gate}-{slug}.md`** (one file per piece, kept
+across rounds: add each new round at the top, do not make a new file), and show the same in
+the chat, in this order:
+
+```
+# Check: <what was checked, in plain words>
+
+## Verdict: <READY | NEEDS A LOOK | NEEDS FIXING>   (round <n>, <date>)
+
+<One sentence that a busy person could act on. "Ready apart from two unsourced figures in
+the pricing section.">
+
+Checked by: <Claude | Claude and Jev | Claude, Jev and Clef>
+
+## Needs fixing
+| Problem | Where | Fix |
+(Only what must change before going on. If nothing: "Nothing.")
+
+## Worth a look
+| What | Where | Why it is flagged |
+(Smaller problems, close calls, and rows where the checkers disagree, with who said what
+in words. If nothing: "Nothing.")
+
+## Good
+- <the checks that passed, grouped in three to five short bullets>
+
+## What changed since the last round
+| Check | Last round | This round |
+(From round 2 on. Only checks whose result changed, plus one line on what was edited.)
+
+## Your call
+1. **Approve:** carry on to <the next step, named>.
+2. **Update:** I make the fixes above, then check again.
+3. **Stop:** leave it here.
+
+## Details
+(The full table: check, code, Claude, each decision model with its number, the evidence
+line. And what was not checked, and why.)
+```
+
+**Verdict words.** READY is a PASS, NEEDS A LOOK is a REVIEW, NEEDS FIXING is a FIX. Use the
+plain words everywhere the person reads. The old words may appear in the details only.
+
+## After the gate: approve, update or stop. Always.
+
+A gate never moves the work on by itself. After showing the result, **stop and ask** the
+three options under "Your call", whatever the verdict, READY included. Then:
+
+- **Approve:** stamp the piece (below) and return to the command, which carries on.
+- **Update:** make the fixes listed under "Needs fixing", and under "Worth a look" if the
+  person says so. Edit the piece that was checked, or send it back to the step named in the
+  fix. Then run the gate again as the next round and ask again. There is no limit on
+  rounds: the person decides when it is done.
+- **Stop:** stamp the piece as stopped and end the command there.
+
+**Stamp the piece, so anyone opening it knows where it stands.** Put this block at the very
+top of the file that was checked (for an article, at the top of the draft file; for the
+Find list, at the top of the list), and keep it current:
+
+```
+> **Status:** <Approved | Updated, waiting for a check | Needs fixing | Stopped>
+> **Checks:** round 1 on <date>: <verdict>. <Edited on <date>: what changed, in one line.>
+> round 2 on <date>: <verdict>. <Approved by you on <date>.>
+> Full result: `content/gates/<file>`
+```
+
+Every edit made after a gate adds a line there. A piece with no such block has not been
+through a gate. Remove the block when the piece is formatted for publishing.
+
+**Unattended runs.** If the person said up front not to ask (a test run, a scheduled run),
+do not ask: write the result, stamp the piece "Not approved by a person", and carry on.
+Say so in the closing message.
 
 Never invent an answer for a decision model that did not run. Never use em dashes.
 
