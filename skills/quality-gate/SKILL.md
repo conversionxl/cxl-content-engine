@@ -41,7 +41,7 @@ piece that decided it. No line to point to means you cannot pass the row.
 
 Count, do not judge. Use the shell:
 
-- **Em dashes:** `grep -c "—" <file>`.
+- **Em dashes:** `grep -c "$(printf '\\xe2\\x80\\x94')" <file>` (the character is written as bytes so this file holds none).
 - **Avoided words:** each word or phrase in the avoid list of
   `projects/content-engine/your-setup/brand-and-voice.md`, case-insensitive.
 - **The other checks** listed under `code_checks` in the gate's question file (a claim still
