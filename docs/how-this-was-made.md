@@ -116,6 +116,13 @@ something the top results don't), Steve Toth (headers as questions, product fact
 Alex Birkett (how it earns a citation), Tarek Reslan (intent, usefulness, the repurposing
 rows) and Ryan Law (verify claims).
 
+### 8. A check for list posts (0.7.0)
+
+The first refresh of a list post ("best AI marketing courses", November 2026) failed three
+article rows that a list cannot pass: one call to action, headers as questions or claims,
+sections that open with the answer. That buried the rows that mattered. The draft gate now
+has a second set of rows for list posts, and asks four of them once per entry.
+
 ## The result
 
 Same dependable structure Ryan designed, with a gentle on-ramp for new users, proven B2B

@@ -58,6 +58,25 @@ Run by `/content-engine:blog-pipeline` and `/content-engine:update-pipeline`. Qu
 | D11 | The article reads like the voice described in the header. |  | Brand and voice file and voice examples |
 | D12 | A reader could act on the article without needing another source. |  | Tarek Reslan: usefulness |
 
+## Gate 2, list posts: when the piece is a list of entries
+
+A list post compares entries: courses, tools, vendors, templates. It has many links out and entry names as headings, on purpose, so the article rows above do not fit it. When the piece is a list, the draft gate uses these rows instead. Questions: `gates/list-questions.json`. Four rows are asked once per entry, so a weak entry is named: every fact sourced, nothing claimed missing, who it is for, and opinion kept apart from fact.
+
+| # | Check | Must pass | Where it comes from |
+|---|---|---|---|
+| L1 | The opening names which entry suits which kind of reader, before the list starts. |  | Tarek Reslan: search intent match |
+| L2 | Every fact about an entry (price, length, format, who teaches it, what it covers) names the page it came from. | Yes | Ryan Law: verify claims |
+| L3 | The piece makes no statement about what an entry lacks without a source for it. | Yes | Gaetano DiNardi: a source for every competitor claim |
+| L4 | The piece says plainly which entries are the brand's own. | Yes | Steve Toth: truth alignment |
+| L5 | Every statement about the brand's own entries matches the offer described in the header. | Yes | Steve Toth: truth alignment |
+| L6 | Each entry says who it is for. |  | Gaetano DiNardi: write for a buyer who is choosing |
+| L7 | The piece says how the entries were chosen and ordered. |  | Andy Crestodina: show your method |
+| L8 | A table near the top compares the entries on the same points. |  | Steve Toth: structure for citation |
+| L9 | The piece uses data or a point of view of the brand's own that other lists of this kind do not have. |  | Andy Crestodina: the average of the internet test |
+| L10 | Judgments about an entry (pros, cons, why it was picked) read as the writer's view, not as facts from the entry's page. |  | Engine rule: keep fact and opinion apart |
+| L11 | The piece reads like the voice described in the header. |  | Brand and voice file |
+| L12 | A reader could pick an entry from this piece without opening another list. |  | Tarek Reslan: usefulness |
+
 ## Gate 3, channel: on each repurposed piece
 
 Run by `/content-engine:repurpose`, once per piece. Questions: `gates/channel-questions.json`. The C rows apply to every channel; K rows to carousels, V rows to video scripts, N rows to newsletters.

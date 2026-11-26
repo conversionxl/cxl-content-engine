@@ -25,6 +25,20 @@ Read `projects/content-engine/your-setup/quality-gates.md`.
 - `**Gates:** off`: say "Gates are switched off in quality-gates.md" in one line and return.
 - Note the `**Decision model:**` line: `none`, `jev`, `clef` or `both`.
 
+**Article or list post?** The draft gate has two sets of rows. Before scoring, decide which
+the piece is, and say so in the result:
+
+- **A list post:** its main sections are entries being compared (courses, tools, vendors,
+  templates), each under a heading that is the entry's name. Use the "list posts" rows and
+  `gates/list-questions.json`. Ask the rows named in that file's `per_entry` list once per
+  entry, with only that entry as the piece, and name the weakest entry for each. Ask the
+  other rows once on the whole piece. Never apply the article rows to a list: a list has
+  many links out and names as headings by design.
+- **Anything else:** use the article rows and `gates/draft-questions.json`.
+
+If `quality-gates.md` has no "list posts" section (a folder set up before it existed), the
+rows are the `questions` in `gates/list-questions.json`, which the setup script adds.
+
 The rows to check are the table for this gate in that file. The user may have changed them:
 use their version, not what you remember.
 
