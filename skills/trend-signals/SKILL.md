@@ -17,8 +17,8 @@ and confirm them in one line before starting.
 
 ## Tools
 
-Built-in web search and fetch are enough. If a scraper is marked `on` in
-`projects/content-engine/your-setup/data-sources.md` (Apify, Firecrawl or similar), use it
+Built-in web search and fetch are enough. If the communities and reviews row is `on` in
+`projects/content-engine/your-setup/data-sources.md` (Apify, Firecrawl or another scraper), use it
 for Reddit and review pages, because it returns full threads and comments. If a page cannot
 be read, say so and move on. Never invent a quote, a thread or a review.
 

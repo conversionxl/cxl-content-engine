@@ -16,7 +16,7 @@ fallen behind the current SERP.
 ## Steps
 
 1. Identify the article's target topic or keyword.
-2. Look at what currently ranks for it. Use Ahrefs or Search Console if on, otherwise
+2. Look at what currently ranks for it. Use the keyword and search results tool or the search performance tool if either is `on` in `data-sources.md`, otherwise
    built-in web search of the current top results.
 3. **Also check what answer engines cover and cite.** Ask ChatGPT, Perplexity, or AI
    Overviews the core question behind this topic and note the subtopics they include and the

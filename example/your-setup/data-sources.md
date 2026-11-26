@@ -1,17 +1,18 @@
 # Data sources
 
-Example setup for Acme Deals, a fictional brand.
+Example setup for Acme Deals, a fictional brand. Every optional tool is off, so everyone gets the same result.
 
-## Toggles
+## Your tools
 
-| Source | Status | Used for |
-|---|---|---|
-| Built-in web (search + fetch) | on | Always available. SERP scans, competitor pages, research. |
-| Ahrefs MCP | off | Keyword volume, parent topic, related terms, SERP data |
-| Google Search Console MCP | off | Your real queries, impressions, positions |
-| Google Analytics MCP | off | Traffic and conversion data for your pages |
-| Web scraper (Apify, Firecrawl or similar) | off | Full Reddit threads and review pages for `trend-signals` |
+| Job | Tool | Status | What the engine does with it |
+|---|---|---|---|
+| Web search and page reading | Built into Claude | on | Always available. Search results, competitor pages, research, sources for claims. |
+| Keyword and search results data | Ahrefs | off | Search volume, difficulty, parent topic, what ranks, what competitors rank for that you don't. Used to find topics, score them, research an article and check a title. |
+| Your own search performance | Google Search Console | off | Your real queries, clicks, impressions and positions. Used to find pages that are seen but not clicked, close to page one, or losing ground. |
+| Site analytics | Google Analytics 4 | off | Sessions, engagement and conversions per page. Used to tell a page that wins the click from a page that wins the customer, and to pick which topics to favour. |
+| Communities and reviews | Apify or Firecrawl | off | Full Reddit threads, forum threads and review pages. Used to find what your audience asks and complains about, in their own words. |
+| Visuals | none | off | Image specs for an article. Switch on only if you want them. |
 
-Search Console is off on purpose. The example reads the made-up export in
-`inputs/search-console/acme-search-console.csv` instead, so everyone gets the same numbers.
-Every figure from that file is dummy data and is labelled that way in the output.
+Search performance is off on purpose. The example reads the made-up export in
+`inputs/search-console/acme-search-console.csv` instead. Every figure from that file is
+dummy data and is labelled that way in the output.

@@ -57,7 +57,16 @@ Anything you add after the keyword or URL steers the run: angles to take, produc
 | 3. Refresh | A published article | The new version with every change marked |
 | 4. Repurpose | A finished article | Carousel copy, a short or long video script, a newsletter edition |
 
-Stage 1 works on built-in web search alone. Connecting Search Console adds your own numbers, which is where the fastest wins are.
+Every stage works on web search alone. Four optional tools make it sharper, and setup talks you through each one:
+
+| Job | Default tool | What it adds |
+|---|---|---|
+| Keyword and search results data | Ahrefs | Real volume and difficulty, and what competitors rank for that you don't |
+| Your own search performance | Google Search Console | Pages that are seen but not clicked, or one push from page one |
+| Site analytics | Google Analytics 4 | Which pages turn readers into customers |
+| Communities and reviews | Apify or Firecrawl | Full Reddit and review threads |
+
+Use something else for one of these jobs, such as Semrush or Plausible? Name it in setup and the engine uses that.
 
 ## Try it on Acme first
 

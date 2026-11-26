@@ -12,8 +12,14 @@ with nine others on the same page, so read those first.
 
 - The page (a URL, or a draft in `projects/content-engine/content/`) and its target query.
 - The current title and meta description, if published.
-- If Search Console is on in `projects/content-engine/your-setup/data-sources.md`, the
-  page's impressions, CTR and position for that query. If not, do not guess them.
+- From `projects/content-engine/your-setup/data-sources.md`, whatever is `on`:
+  - **Search performance:** the page's impressions, CTR and position for the query, and the
+    other queries the page gets impressions for. A title has to serve the main ones.
+  - **Keyword and search results data:** the query's volume, and the titles and features
+    on the results page.
+  - **Site analytics:** whether visitors from search stay and convert. A page that loses
+    visitors after the click has a promise problem, not only a title problem.
+  If a tool is off, do not guess its numbers.
 
 ## Step 1: understand the query
 

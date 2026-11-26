@@ -14,8 +14,17 @@ A keyword or topic, plus any steering context the user gave the pipeline.
 
 ## How to run
 
-Check `projects/content-engine/your-setup/data-sources.md`. Use Ahrefs MCP / Search Console for keyword and SERP
-data if they are on; otherwise use built-in web search and mark metrics as estimates.
+**Which tools to use.** Read `projects/content-engine/your-setup/data-sources.md`. A job is
+covered when its row is `on`, whatever tool the row names (Ahrefs, Semrush, another). An
+older setup file lists tools without jobs: read "Ahrefs MCP" as keyword and search results
+data, "Google Search Console MCP" as search performance, "Google Analytics MCP" as site
+analytics.
+
+- **Keyword and search results data on:** pull the keyword's volume, difficulty and parent
+  topic, the pages that rank and the related questions from that tool.
+- **Search performance on:** check whether the user's site already ranks for this keyword
+  or close variants, and with which page. An existing page changes the brief: say so.
+- **Both off:** use web search, and mark any metric as an estimate or leave it blank.
 
 ## Steps
 
