@@ -99,6 +99,13 @@ analytics and content calendar skills (not content creation), his second article
 optimizer (the pipeline already does that job), and example hooks that could sit on any
 post. Measuring how often AI names you is the AI visibility builds, not this engine.
 
+### 6. An example you can run before setup (0.3.0)
+
+Setup takes about 20 minutes and needs your own material. The engine now ships with **Acme
+Deals**, Nick Christensen's fictional brand (MIT), already set up: voice rules, an offer, two
+sample articles, customer reviews and call notes, and a made-up Search Console export. Add
+`example` to any command and it runs there, in its own folder.
+
 ## The result
 
 Same dependable structure Ryan designed, with a gentle on-ramp for new users, proven B2B

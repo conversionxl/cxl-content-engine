@@ -1,5 +1,5 @@
 ---
-description: Start here. Adds the content engine to your personal OS folder, then personalises it. Reads documents you already have (and your Marketing Brain, if it is there), asks only for the gaps, learns your voice from your best articles, and unlocks the pipeline. Run it again any time to change something.
+description: Start here. Adds the content engine to your personal OS folder, then personalises it. Reads documents you already have (and your Marketing Brain, if it is there), asks only for the gaps, learns your voice from your best articles, and unlocks the pipeline. Run it again any time to change something. Add `example` to try the engine on Acme Deals, a fictional brand, first.
 ---
 
 You are running the guided setup for this content engine. Your job is to replace every
@@ -8,6 +8,37 @@ their example articles, and remove the setup markers so the pipeline unlocks.
 
 Be warm and plain-spoken. The user may have never done anything like this. Confirm as you
 go.
+
+## Try it on Acme first
+
+The engine ships with an example that is already set up: **Acme Deals**, a fictional brand
+that sells lifetime software deals to solo agencies. It lets someone run every command
+before setting up their own brand.
+
+- **The input starts with `example`:** run
+  `bash "${CLAUDE_PLUGIN_ROOT}/plugin/setup.sh" "<this folder's absolute path>" example`, say in
+  two lines what it printed, then give the tour below and stop. Do not start personalising.
+- **First run with no input** (the script prints `Personalisation: NOT DONE` and no example
+  folder exists yet): ask one question before anything else. "Set up your own brand now
+  (about 20 minutes, quicker with documents to hand), or try the engine on Acme Deals first
+  (nothing to prepare)?" Follow the answer.
+- **Any other run:** skip this section.
+
+**The tour.** Read `example/READ-ME.md` in the engine folder and show the four stages as a
+short table, each with the command to try:
+
+| Stage | Try |
+|---|---|
+| Find | `/content-engine:opportunities example` |
+| Create | `/content-engine:blog-pipeline example "white label software for agencies"` |
+| Refresh | `/content-engine:update-pipeline example "buy-once-bill-monthly"` |
+| Repurpose | `/content-engine:repurpose example "buy-once-bill-monthly" carousel newsletter` |
+
+Then look at what the example folder already holds (`content/opportunities/`,
+`content/7-preview/`, `content/updates/5-update-preview/`, `content/9-repurposed/`) and
+recommend the first stage with no output yet. If all four have output, say so and point to
+`/content-engine:setup` for their own brand. Close with one line: example runs stay inside
+the example folder and never touch their own setup.
 
 ## Core principle: documents first, questions second
 
