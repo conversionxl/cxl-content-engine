@@ -75,7 +75,7 @@ The engine checks its own work at three points, against yes or no checks built f
 | Gate | When | What it asks |
 |---|---|---|
 | Strategy | After Find, before anything is written | Does this lead to what you sell? Is the evidence from more than one source? Is a refresh enough? |
-| Draft | On the finished article, before the preview | Is every claim sourced? Does it say something the top results don't? Is every product fact right? |
+| Draft | On the finished article or list post, before the preview (a list post gets its own rows) | Is every claim sourced? Does it say something the top results don't? Is every product fact right? |
 | Channel | On each carousel, video script or newsletter | Is every number also in the source article? Is the opening specific to this piece? |
 
 Claude runs the gates. If you have a decision model, Jev (TypeSafe) or Clef (Cloudflare), setup asks whether to switch it on as a second check. It shows where it disagrees with Claude and never approves anything. The checks live in `your-setup/quality-gates.md`: change them, or switch the gates off there.

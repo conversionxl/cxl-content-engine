@@ -1,0 +1,75 @@
+{
+  "about": "Draft gate for a list post: a piece whose main sections are entries being compared (courses, tools, vendors, templates). Used in place of the article questions. State: a header with the target keyword, the brand's offer and the voice in three lines, then the piece. Ask L2, L3, L6 and L10 once per entry, with only that entry as the piece; ask the rest once on the whole piece.",
+  "questions": {
+    "L1": {
+      "type": "noul",
+      "instructions": "The opening names which entry suits which kind of reader, before the list starts."
+    },
+    "L2": {
+      "type": "noul",
+      "instructions": "Every fact about an entry (price, length, format, who teaches it, what it covers) names the page it came from."
+    },
+    "L3": {
+      "type": "noul",
+      "instructions": "The piece makes no statement about what an entry lacks without a source for it."
+    },
+    "L4": {
+      "type": "noul",
+      "instructions": "The piece says plainly which entries are the brand's own."
+    },
+    "L5": {
+      "type": "noul",
+      "instructions": "Every statement about the brand's own entries matches the offer described in the header."
+    },
+    "L6": {
+      "type": "noul",
+      "instructions": "Each entry says who it is for."
+    },
+    "L7": {
+      "type": "noul",
+      "instructions": "The piece says how the entries were chosen and ordered."
+    },
+    "L8": {
+      "type": "noul",
+      "instructions": "A table near the top compares the entries on the same points."
+    },
+    "L9": {
+      "type": "noul",
+      "instructions": "The piece uses data or a point of view of the brand's own that other lists of this kind do not have."
+    },
+    "L10": {
+      "type": "noul",
+      "instructions": "Judgments about an entry (pros, cons, why it was picked) read as the writer's view, not as facts from the entry's page."
+    },
+    "L11": {
+      "type": "noul",
+      "instructions": "The piece reads like the voice described in the header."
+    },
+    "L12": {
+      "type": "noul",
+      "instructions": "A reader could pick an entry from this piece without opening another list."
+    }
+  },
+  "per_entry": [
+    "L2",
+    "L3",
+    "L6",
+    "L10"
+  ],
+  "code_checks": {
+    "em_dash": "Fails if the piece contains an em dash (U+2014).",
+    "avoided_words": "Fails if the writer's own prose contains a word or phrase from the avoid list in brand-and-voice.md. Matches inside URLs, quotations, code spans and product names do not count.",
+    "entry_source": "Fails if an entry has no source line or link to its own page.",
+    "heading_is_name": "Fails if an entry's heading is not the entry's name. Entry headings are anchors that search engines show as links: keep them stable."
+  },
+  "thresholds": {
+    "fail_below": 0.5,
+    "borderline_below": 0.65
+  },
+  "must_pass": [
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+  ]
+}
