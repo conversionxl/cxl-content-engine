@@ -72,5 +72,8 @@ Open or point the user to the preview so they can read the full refreshed articl
 exactly what changed inline, then accept or reject the update. Remind them nothing is
 published until they say so.
 
+If the guidance file noted a title fix, say so and give the next step: the `title-and-meta`
+skill on this page and query. It is not part of this pipeline.
+
 Follow the data-source toggles. Do not invent replacement stats: every changed number must
 have a real, retrievable source. Never use em dashes.

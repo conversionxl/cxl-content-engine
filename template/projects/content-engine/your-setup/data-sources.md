@@ -16,7 +16,7 @@ or edit this file by hand.
 | Keyword and search results data | Ahrefs | off | Search volume, difficulty, parent topic, what ranks, what competitors rank for that you don't. Used to find topics, score them, research an article and check a title. |
 | Your own search performance | Google Search Console | off | Your real queries, clicks, impressions and positions. Used to find pages that are seen but not clicked, close to page one, or losing ground. |
 | Site analytics | Google Analytics 4 | off | Sessions, engagement and conversions per page. Used to tell a page that wins the click from a page that wins the customer, and to pick which topics to favour. |
-| Communities and reviews | Apify or Firecrawl | off | Full Reddit threads, forum threads and review pages. Used to find what your audience asks and complains about, in their own words. |
+| Communities and reviews | A scraper that reads Reddit | off | Full Reddit threads, forum threads and review pages. Firecrawl reads review sites and forums but refuses Reddit (checked 26 Nov 2026). Used to find what your audience asks and complains about, in their own words. |
 | Visuals | none | off | Image specs for an article. Switch on only if you want them. |
 
 **Using a different tool for one of these jobs?** Put its name in the Tool column of that
@@ -26,6 +26,12 @@ uses whatever tool you name there, as long as it is connected to Claude.
 
 **Have a tool for a job that is not listed?** Add a row: the job, the tool, `on`, and one
 line on what it holds (a CRM with deal data, a social analytics tool, a survey tool).
+
+**Which event means a sale or a lead?** Site analytics counts "key events", and on many sites
+that includes logins or page scrolls. Name the one event that means business here, and the
+engine uses that and nothing else as a conversion:
+
+- Conversion event: not set
 
 **Rules the engine follows:**
 

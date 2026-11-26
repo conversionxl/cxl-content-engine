@@ -41,7 +41,30 @@ Report only what the engines actually return. Do not guess what an answer engine
 says. If you cannot reach a given engine, say which ones you checked and how. Quote answers
 accurately; do not embellish.
 
+## Say how each engine was checked
+
+Most sessions cannot query ChatGPT, Perplexity or Google's AI mode directly: they sit behind
+a sign-in. Do not present a web search as what an engine said. Open the output with this
+table, filled in honestly:
+
+| Engine | How it was checked |
+|---|---|
+| Google AI Overviews | Read from the keyword tool's results-page data, with its date / seen in a live search / not checked |
+| ChatGPT | Asked directly / not reachable from this session |
+| Perplexity | Asked directly / not reachable from this session |
+| Claude | Asked directly (this model, with web search on or off) |
+
+If an engine was not reachable, say what the user can do: paste its answer to one or two
+questions into the chat, and the audit will use it. Mark every finding with the engine it
+came from. A finding from one engine is not "what AI says".
+
 ## Output
+
+**A command's save path wins.** When a pipeline command names where this audit goes (the
+refresh pipeline uses `projects/content-engine/content/updates/6-aeo/{slug}.md`), save it
+there and nowhere else. The paths below are for the create pipeline and for running this
+skill on its own.
+
 
 - Topic mode: write to `projects/content-engine/content/1-research/{slug}-aeo.md` (consensus answer, who gets cited,
   the citation gap, decision factors). Feeds `research`, `outline`, and `update-topic-gaps`.

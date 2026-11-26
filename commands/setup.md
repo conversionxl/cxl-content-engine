@@ -196,7 +196,7 @@ Search Console and Google Analytics are connected here. Ahrefs is not."
 | Keyword and search results data | Ahrefs | Real search volume and difficulty instead of estimates, and the topics competitors rank for that you don't |
 | Your own search performance | Google Search Console | The fastest wins: pages that are seen but not clicked, or one push from page one |
 | Site analytics | Google Analytics 4 | Which pages turn readers into leads or customers, so the engine favours topics that pay |
-| Communities and reviews | Apify or Firecrawl | Full Reddit and review threads. Without it, Reddit often cannot be read at all |
+| Communities and reviews | A scraper that reads Reddit | Full Reddit and review threads. Without it, Reddit often cannot be read at all. Firecrawl covers review sites and forums but not Reddit |
 
 For each one:
 
@@ -217,6 +217,14 @@ For each one:
    - **They don't have it:** leave `off`, say what the engine will do instead, and move on.
      For search performance, mention the no-tool route: export a CSV from Search Console
      into `projects/content-engine/inputs/search-console/`.
+
+**For site analytics, ask one more thing** when it is on: "Which event in your analytics means
+a sale or a lead?" Many sites count logins or scrolls as key events. Write the answer on the
+"Conversion event" line in `data-sources.md`. If they don't know, leave "not set": the
+engine then reports sessions and engagement only, and says conversions were not read.
+
+**For communities, test Reddit** when a scraper is on: try to read one Reddit thread. If it
+refuses, say so and leave the row note as it is.
 
 **Then ask the open question:** "Is there any other tool you want the engine to use? A CRM,
 a social analytics tool, a survey tool, anything with data about your customers or your

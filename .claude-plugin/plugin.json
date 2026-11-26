@@ -1,6 +1,6 @@
 {
   "name": "content-engine",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Content engine for B2B marketers, in four stages: find what to write from your search data, communities and reviews; create a researched, fact-checked article in your voice; refresh published ones; repurpose into carousels, video scripts and newsletters. Small skills chained into pipelines, every step saved to a file. Built on Ryan Law's (Ahrefs) approach, with CXL course tactics. Start with /content-engine:setup.",
   "author": {
     "name": "CXL",

@@ -32,7 +32,7 @@ the update focused instead of rewriting things that were fine.
    `projects/content-engine/content/opportunities/`, pull its top queries with clicks,
    impressions, CTR and position, and say which case this is:
    - **Seen but not clicked** (high impressions, position 1 to 10, low CTR): the title and
-     description are the first fix. Note it for the `title-and-meta` skill and keep the body
+     description are the first fix. Note it for the `title-and-meta` skill (not a step of this pipeline: the command offers it when the run ends) and keep the body
      edits light.
    - **Close to winning** (position 5 to 20): depth, structure and freshness are the job.
    - **Losing ground** (clicks or impressions falling): find what changed in the results
@@ -54,3 +54,5 @@ the update focused instead of rewriting things that were fine.
 Write to `projects/content-engine/content/updates/0-guidance/{slug}.md`: the goal of this refresh, the priorities
 in order, the search data case if there is one, and any do-not-touch notes. The audit skills read this so they pull in one
 direction.
+
+**Conversions:** count only the event named on the "Conversion event" line of `data-sources.md`. If it says "not set", report sessions and engagement and say conversions were not read. Never treat "key events" as sales.

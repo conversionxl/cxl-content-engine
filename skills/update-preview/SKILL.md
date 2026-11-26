@@ -29,9 +29,13 @@ alone hides how the article actually reads now.
    why), then the full marked-up article below it. The summary is a quick orientation; the
    full article is the main view.
 4. For each changed stat, show its source next to it so the user can sanity-check.
-5. Keep all CSS inline so the file opens with no internet and no other files.
+5. Keep all CSS inline so the file reads with no internet and no other files. If this
+   folder's own instructions require brand fonts, a web font link with a named fallback is
+   fine.
 6. Apply the user's brand colours lightly if defined, but keep readability first. The
    change-highlight colours must stay distinct from brand colours so marks are never missed.
+   If the brand rules allow only brand colours, tell the marks apart by pattern instead:
+   an underline for added text, a strike for removed text, a tint for changed text.
 
 ## Output
 

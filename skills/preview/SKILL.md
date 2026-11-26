@@ -17,7 +17,10 @@ Cited draft: `projects/content-engine/content/6-drafts-cited/{slug}.md` (or the 
 1. Convert the markdown draft to a single self-contained HTML file: headings, paragraphs,
    lists, tables, links, and image placeholders all rendered.
 2. Style it simply and readably: a comfortable reading width, clear type, sensible spacing.
-   Keep all the CSS inline in the one file so it works with no internet and no other files.
+   Keep all the CSS inline in the one file so it reads with no internet and no other files.
+   If this folder's own instructions (`CLAUDE.md` or the brand files) require brand fonts or
+   colours, follow them: a web font link is fine as long as a fallback font is named, so the
+   page still reads offline.
 3. If `projects/content-engine/your-setup/` defines brand colours or fonts, apply them lightly so it feels like the
    user's site. Do not over-design. The point is to read the words.
 4. Show any claims that `verify-claims` flagged as a small note at the top, so the user

@@ -44,7 +44,7 @@
   },
   "code_checks": {
     "em_dash": "Fails if the piece contains an em dash (U+2014).",
-    "avoided_words": "Fails if the piece contains a word or phrase from the avoid list in brand-and-voice.md.",
+    "avoided_words": "Fails if the writer's own prose contains a word or phrase from the avoid list in brand-and-voice.md. Matches inside URLs, quotations, code spans and product names do not count.",
     "slide_length": "Carousel only: fails if a slide has more than 40 words.",
     "subject_length": "Newsletter only: fails if a subject line is over 60 characters."
   },
