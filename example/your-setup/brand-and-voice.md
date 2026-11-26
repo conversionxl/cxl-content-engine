@@ -34,6 +34,14 @@ came from. One idea per piece. Clear over clever, and no humour that needs expla
 - Social posts: the link goes in the first comment, not in the caption.
 - The read-aloud test: if it sounds like a brand "communicating", rewrite it.
 
+## Visual look
+
+Used when a carousel is built into slides.
+
+- Background: `#f7f6f2`. Text: `#111111`. Accent: `#2f6fed`.
+- Heading and body font: Inter.
+- Footer name: Acme Deals.
+
 ## Your voice examples
 
 The real source of your voice is the articles in `voice-examples/`. This file captures the

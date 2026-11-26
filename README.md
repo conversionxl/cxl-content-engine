@@ -9,7 +9,7 @@ It is the content track's build in CXL's Marketing Engineer cohort, and it works
 - Find what to write next, from your own search data and from what your audience says in communities and reviews.
 - Take a keyword to a publish-ready first draft.
 - Refresh articles you have already published.
-- Turn a finished article into a carousel, a video script or a newsletter edition.
+- Turn a finished article into a carousel (built as slides: one image per slide and a PDF to upload), a video script or a newsletter edition.
 - Make every article sound like **you**, by teaching it from your own best writing.
 - See every step of the work, so you can fix the one part that went wrong without starting over.
 
