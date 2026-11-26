@@ -1,13 +1,15 @@
 # Content engine
 
-A content writing system that runs inside Claude. You give it a keyword or a published URL, and it works through the steps a senior content team would: research, outline, draft in your voice, fact-check, and a finished article ready to review.
+A content system that runs inside Claude, in four stages: find what to write, create it, keep it current, repurpose it. You give it a topic, a keyword or a published URL, and it works through the steps a senior content team would: research, outline, draft in your voice, fact-check, and a finished article ready to review.
 
 It is the content track's build in CXL's Marketing Engineer cohort, and it works on its own too. You type plain English. You don't need to code.
 
 ## What you can do with it
 
+- Find what to write next, from your own search data and from what your audience says in communities and reviews.
 - Take a keyword to a publish-ready first draft.
 - Refresh articles you have already published.
+- Turn a finished article into a carousel, a video script or a newsletter edition.
 - Make every article sound like **you**, by teaching it from your own best writing.
 - See every step of the work, so you can fix the one part that went wrong without starting over.
 
@@ -38,11 +40,24 @@ Setup adds a `projects/content-engine/` folder to your folder, then asks for doc
 | Command | What it does |
 |---|---|
 | `/content-engine:setup` | Adds the engine to your folder and personalises it |
-| `/content-engine:blog-pipeline "your keyword"` | New article, from research to a styled preview |
-| `/content-engine:update-pipeline "https://your-site.com/article"` | Refreshes a published article and shows the new version with changes marked |
+| `/content-engine:opportunities [topic]` | **Find.** One ranked list of what to write, refresh or fix next, with the command to run for each item |
+| `/content-engine:blog-pipeline "your keyword"` | **Create.** New article, from research to a styled preview |
+| `/content-engine:update-pipeline "https://your-site.com/article"` | **Refresh.** Updates a published article and shows the new version with changes marked |
+| `/content-engine:repurpose "slug or url" carousel video newsletter` | **Repurpose.** A finished article into the formats you name |
 | `/content-engine:llms-brand-page` | One page that tells AI answer engines who you are |
 
 Anything you add after the keyword or URL steers the run: angles to take, products to feature, things to avoid.
+
+### The four stages
+
+| Stage | What it reads | What you get |
+|---|---|---|
+| 1. Find | Your Search Console data (connected, or an export), search questions, Reddit and other communities, review sites, your sales calls and tickets, your competitors' coverage | A ranked list: new article, refresh, title fix or repurpose, each with its evidence |
+| 2. Create | The keyword, your setup, live search results, what AI answer engines say | A fact-checked article in your voice, as a styled preview |
+| 3. Refresh | A published article | The new version with every change marked |
+| 4. Repurpose | A finished article | Carousel copy, a short or long video script, a newsletter edition |
+
+Stage 1 works on built-in web search alone. Connecting Search Console adds your own numbers, which is where the fastest wins are.
 
 ## Where your work goes
 
@@ -74,7 +89,7 @@ Rename skills, add steps, remove the parts you don't use. Then point Claude at y
 
 This engine began as a rebuild of the system **Ryan Law**, Director of Content Marketing at **Ahrefs**, documented in [How I Do Content Engineering with Claude Code](https://ahrefs.com/blog/how-i-do-content-engineering-with-claude-code/) and demoed on the [Ahrefs Podcast](https://www.youtube.com/watch?v=iVZrVeESnFQ) with Tim Soulo. The core structure is his: small skills chained into a pipeline, every step saving its output so you can debug it, a master command that runs them in order, and the idea that you take it and make it yours. Full credit and thanks to Ryan and Ahrefs.
 
-We then made three sets of changes:
+We then made four sets of changes:
 
 **1. A guided setup.** Ryan's system assumes you already know your brand, voice and process. This one starts from placeholder files and a setup command that fills them from documents you already have, with a check that stops the engine running until it is yours.
 
@@ -86,11 +101,17 @@ We then made three sets of changes:
 
 **3. A focus on B2B marketing.** Every skill leans toward B2B: buyer-journey stages, decision factors (integrations, pricing, compliance, support), comparison content, and a source for every competitor claim.
 
+**4. The stages before and after the article.** Ryan's pipeline starts at a keyword and ends at an article. Two stages were added around it, from **Tarek Reslan's** CXL courses and his two systems ([ai-seo-system](https://github.com/conversionxl/ai-seo-system) and [ai-content-system](https://github.com/conversionxl/ai-content-system)):
+- **Find:** five patterns to look for in your Search Console data, trend signals from search questions, communities and reviews, and a title check that reads the live search results first.
+- **Repurpose:** a finished article rebuilt as a carousel, a video script or a newsletter edition.
+- His fact-check labels and quality checks are folded into the existing claims step, so there is one gate, not two.
+
 The full list is in [docs/how-this-was-made.md](docs/how-this-was-made.md).
 
 ## Credits
 
 - **Ryan Law** and **Ahrefs**, for the content engineering approach this is built on.
+- **Tarek Reslan**, for the find and repurpose stages, from his CXL courses "Create research-backed and search-optimized content", "Detect trends through reviews and communities" and "Create and repurpose platform-native social content".
 - The **CXL courses** these tactics come from:
   - [Build optimized B2B content funnels with AI](https://cxl.com/institute/online-courses/b2b-lead-generation-with-ai/), Andy Crestodina
   - [Bottom-of-funnel SEO strategies in tough niches](https://cxl.com/institute/online-course/bottom-of-funnel-seo-strategies-in-tough-niches/), Gaetano DiNardi

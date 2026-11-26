@@ -44,12 +44,19 @@ work, the better it gets.
 
 ## The pipelines and commands
 
+- **Find:** `/content-engine:opportunities [topic]` runs search-console-opportunities (if you
+  have the data), trend-signals, voice-of-customer-mining (if you added files),
+  content-gap-analysis and keyword-prioritization, then merges them into one ranked list
+  with the command to run for each item. The `title-and-meta` skill handles the title fixes.
 - **Creation:** `/content-engine:blog-pipeline "keyword"` runs (optional) voice-of-customer-mining,
   research, answer-engine-audit, your-reference, outline, product-mentions, draft,
   verify-claims, (optional visuals), and preview.
 - **Update:** `/content-engine:update-pipeline "url"` runs extract, guidance, answer-engine-audit, the three
   audits (claims, product mentions, topic gaps), update-draft, and a full preview of the new
   article with changes marked inline.
+- **Repurpose:** `/content-engine:repurpose "slug or url" [formats]` runs repurpose-carousel,
+  repurpose-video or repurpose-newsletter on a finished article. Each rebuilds the piece for
+  its platform and adds no claim the article does not make.
 - **Brand page:** `/content-engine:llms-brand-page` builds an LLM-readable brand page so answer engines
   describe you accurately. Run it once, then refresh when your offer changes.
 

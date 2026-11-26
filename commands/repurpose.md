@@ -1,0 +1,56 @@
+---
+description: Turn a finished article into other formats: a carousel, a short or long video script, a newsletter edition. Each is rebuilt for its platform, not summarised. Usage: /content-engine:repurpose "slug or url" [carousel] [video] [newsletter] [notes]
+argument-hint: "slug or url" [carousel | video | newsletter] [notes]
+---
+
+Repurpose: **$ARGUMENTS**
+
+## First, check the setup
+
+Run `bash "${CLAUDE_PLUGIN_ROOT}/plugin/setup.sh" "<this folder's absolute path>"`. It never
+overwrites a file, and prints where the engine folder is and whether personalisation is done.
+
+- If it prints `Personalisation: NOT DONE`, STOP. Tell the user to run `/content-engine:setup`
+  first, and why: the engine will not write against placeholder brand data. Do not continue.
+- If `.claude/folders.json` exists, every `projects/content-engine/...` path in this command and
+  in the skills it invokes is read and written under the engine folder the script printed.
+
+## Parse the input
+
+- The first quoted item is the **source**:
+  - a **slug**: use the latest version of that article in `projects/content-engine/content/`
+    (`8-publish/`, then `6-drafts-cited/`, then `updates/7-updated-draft/`);
+  - a **URL**: run the `extract-content` skill on it first and derive a slug from the URL;
+  - a **file path** or pasted text: use it as it is and ask for a slug.
+- Then the **formats**: any of `carousel`, `video`, `newsletter`. With none named, ask which
+  ones, in one question. Do not make all three by default.
+- Anything else is **steering**: the audience, the platform, the one idea to lead with.
+
+## Check the source
+
+The source has to be finished. If the slug only has a draft that has not been through
+`verify-claims`, say so and ask whether to continue: a repurposed piece carries every
+unchecked claim to a new audience.
+
+## Run one skill per format
+
+**Invoke the named skill with the Skill tool** (each is listed as `content-engine:<name>`).
+Save each output before starting the next.
+
+| Format | Skill | Output |
+|---|---|---|
+| `carousel` | **repurpose-carousel** | `projects/content-engine/content/9-repurposed/{slug}/carousel.md` |
+| `video` | **repurpose-video** (ask short or long-form if not said) | `.../9-repurposed/{slug}/video-short.md` or `video-long.md` |
+| `newsletter` | **repurpose-newsletter** | `.../9-repurposed/{slug}/newsletter.md` |
+
+## Rules for every format
+
+- **Rebuild, do not summarise.** Each format leads with what works on its platform.
+- **Nothing new.** Every claim and number comes from the source piece, with its source. If a
+  format needs a fact the source lacks, flag it. Do not add it.
+- **The user's voice.** `brand-and-voice.md` and the voice examples apply to every format.
+
+## When done
+
+List the files written. Remind the user that nothing is posted or sent: publishing is their
+step, in their own tools. Never use em dashes.
