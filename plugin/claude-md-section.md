@@ -40,4 +40,4 @@
 
 - **Repurposing adds nothing new.** A carousel, script or newsletter carries only claims that are in the source article, with their sources. Nothing is posted or sent by the engine.
 
-Credits: the pipeline of chained skills, saved step outputs and the master command are Ryan Law's approach at Ahrefs. The B2B, voice-of-customer and answer engine tactics come from CXL courses by Andy Crestodina, Gaetano DiNardi, Alex Birkett and Steve Toth. The Search Console opportunity patterns, trend signals from communities and reviews, the title check, the quality check and the repurposing formats come from Tarek Reslan's CXL courses and his two systems.
+Credits: the method comes from CXL courses. The B2B, voice-of-customer and answer engine tactics are from Andy Crestodina, Gaetano DiNardi, Alex Birkett and Steve Toth. The pipeline structure (chained skills, saved step outputs, one command per pipeline) is Ryan Law's approach at Ahrefs. The Search Console opportunity patterns, trend signals from communities and reviews, the title check, the quality check and the repurposing formats come from Tarek Reslan's CXL courses and his two systems.
