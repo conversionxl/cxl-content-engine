@@ -142,12 +142,57 @@ If Step 0 turned up a product one-pager, sales page, or feature list, draft
 with them: what they sell, key features, best use cases, and how aggressively to mention
 it (light, medium, heavy). Either way, end by confirming the values with them before saving.
 
-## Step 4: Data sources
+## Step 4: Your data tools
 
-Open `projects/content-engine/your-setup/data-sources.md`. Explain that the engine already works using built-in
-web search, with no setup. Ask if they have any of these connected already (Ahrefs MCP,
-Search Console, GA4). For each one they have, set it to `on`. For the rest, leave `off`
-and tell them they can connect them later. Do not make them feel they need any of these.
+Open `projects/content-engine/your-setup/data-sources.md`. Start with one line: the engine
+already works on web search, built into Claude, so every tool here is optional. Then talk
+the user through the jobs **one at a time**. Do not show the whole table and ask "which do
+you have?".
+
+**First, look at what is connected.** Check the tools and connectors available in this
+session (an Ahrefs, Semrush, Search Console, Google Analytics, Apify or Firecrawl connector,
+or any other analytics, SEO, CRM or social tool). Open by saying what you found: "I can see
+Search Console and Google Analytics are connected here. Ahrefs is not."
+
+**Then, for each job in this order:**
+
+| Job | Default tool | What to say it adds |
+|---|---|---|
+| Keyword and search results data | Ahrefs | Real search volume and difficulty instead of estimates, and the topics competitors rank for that you don't |
+| Your own search performance | Google Search Console | The fastest wins: pages that are seen but not clicked, or one push from page one |
+| Site analytics | Google Analytics 4 | Which pages turn readers into leads or customers, so the engine favours topics that pay |
+| Communities and reviews | Apify or Firecrawl | Full Reddit and review threads. Without it, Reddit often cannot be read at all |
+
+For each one:
+
+1. Say in one or two lines what the engine does with it, and what it does without it.
+2. Ask: "Do you use this, or another tool for the same job?"
+3. Act on the answer:
+   - **Connected in this session:** run one small read to confirm it works (a single query,
+     nothing written). If it works, set Status to `on`. If it fails, say what failed and
+     leave it `off`.
+   - **They use a different tool** (Semrush, Moz, Plausible, Matomo, Adobe Analytics, Bing
+     Webmaster Tools, another scraper): put that name in the Tool column. If it is connected
+     here, test it and set `on`. If not, treat it as "not connected yet".
+   - **They have it but it is not connected yet:** ask "connect it now, or later?" For now,
+     walk them through it: in Claude, open **Customize** in the left sidebar, then
+     **Connectors**, find the tool and sign in. If the tool is not listed there, say so and
+     point to `docs/troubleshooting.md`. After they connect, test it and set `on`. For later,
+     leave `off` and say they can run `/content-engine:setup` again any time.
+   - **They don't have it:** leave `off`, say what the engine will do instead, and move on.
+     For search performance, mention the no-tool route: export a CSV from Search Console
+     into `projects/content-engine/inputs/search-console/`.
+
+**Then ask the open question:** "Is there any other tool you want the engine to use? A CRM,
+a social analytics tool, a survey tool, anything with data about your customers or your
+content." For each one that is connected, add a row: the job, the tool, `on`, and one line
+on what it holds.
+
+**Visuals:** ask once whether they want image specs for each article. Set the Visuals row.
+
+**Close the step** by reading back a three-column summary (job, tool, on or off) and what
+they would gain from the first tool they left off. Never make them feel they need any of
+these. Then remove the SETUP_INCOMPLETE line from the file.
 
 ## Step 5: CMS connection
 

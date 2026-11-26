@@ -16,11 +16,17 @@ all. Output a prioritised list of keyword ideas.
 
 ## How to run
 
-Check `projects/content-engine/your-setup/data-sources.md`:
+**Which tools to use.** Read `projects/content-engine/your-setup/data-sources.md`. A job is
+covered when its row is `on`, whatever tool the row names (Ahrefs, Semrush, another). An
+older setup file lists tools without jobs: read "Ahrefs MCP" as keyword and search results
+data, "Google Search Console MCP" as search performance, "Google Analytics MCP" as site
+analytics.
 
-- **If Ahrefs MCP is on:** pull the content gap and keyword opportunities directly. Get
-  volume, parent topic, and difficulty for each idea.
-- **If off (default):** do it with built-in web search. Search the user's core topics,
+- **Keyword and search results data on:** pull the content gap and keyword opportunities
+  directly from that tool. Get volume, parent topic, and difficulty for each idea.
+- **Site analytics on:** note which of the user's existing pages bring conversions, so the
+  list leans toward topics next to what already pays.
+- **Both off (default):** do it with built-in web search. Search the user's core topics,
   see who ranks, scan those competitors for sections and subtopics, and note recurring
   themes the user is missing. Mark any volume figures as estimates, not measured data.
 

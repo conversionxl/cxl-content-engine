@@ -12,16 +12,22 @@ a report: a number only matters if it leads to an action.
 
 Use the first that applies:
 
-1. **Search Console connected** (`Google Search Console MCP` is `on` in
-   `projects/content-engine/your-setup/data-sources.md`): pull queries and pages for the last
+1. **Search performance connected** (its row is `on` in
+   `projects/content-engine/your-setup/data-sources.md`, Search Console or another tool;
+   an older setup file calls it "Google Search Console MCP"): pull queries and pages for the last
    28 days and the 28 days before, with clicks, impressions, CTR and average position.
 2. **An export**: any CSV or sheet the user dropped in
    `projects/content-engine/inputs/search-console/` or pasted into the chat.
 3. **Neither**: stop and say so. Explain the two options above. Do not estimate search data
    from web search, and never invent clicks, impressions or positions.
 
-If `Google Analytics MCP` is `on`, also pull sessions, engagement and conversions for the
-same landing pages. If it is off, skip pattern 5 and say you skipped it.
+**The other tools, if they are `on` in `data-sources.md`** (whatever tool the row names):
+
+- **Site analytics:** pull sessions, engagement and conversions for the same landing pages.
+  If it is off, skip pattern 5 and say you skipped it.
+- **Keyword and search results data:** for the candidates that survive, pull difficulty and
+  what kind of page ranks. Use it for "likelihood of improvement" below. If it is off, judge
+  from position alone and say so.
 
 Leave out branded queries (the company and product names in `your-offer.md`) unless the user
 asks for them: they hide the real picture.

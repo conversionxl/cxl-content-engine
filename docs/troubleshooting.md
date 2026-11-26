@@ -34,12 +34,23 @@ are what teach your voice.
 By default the engine uses built-in web search. For sharper keyword and SERP data, connect
 a data tool and turn it on in `projects/content-engine/your-setup/data-sources.md` (see below).
 
-## Connecting a data tool (Ahrefs, Search Console, GA4)
+## Connecting a data tool (Ahrefs, Search Console, Google Analytics, a scraper, or your own)
 
-These connect as MCP servers in Claude Code. Each provider has its own setup. In short: you
-add the server to your Claude Code settings, authenticate, then change that tool from `off`
-to `on` in `projects/content-engine/your-setup/data-sources.md`. Ask Claude Code "help me connect the Ahrefs MCP"
-and it will walk you through your specific case.
+The quickest route is `/content-engine:setup`: step 4 talks you through each tool, tests
+the connection and switches it on.
+
+By hand: in Claude, open **Customize** in the left sidebar, then **Connectors**, find the
+tool and sign in. Then set its row to `on` in
+`projects/content-engine/your-setup/data-sources.md`. If you use a different tool for the
+same job (Semrush instead of Ahrefs, Plausible instead of Google Analytics), put its name in
+the Tool column.
+
+A tool that is not in the Connectors list can still work if its maker offers an MCP server:
+ask Claude "help me connect" and name the tool. If nothing connects, export a CSV and drop
+it in the matching `inputs/` folder.
+
+Does your screen look different? Claude's interface changes often. Tell us and we will
+update these steps.
 
 ## Connecting a CMS (WordPress, Webflow, others)
 

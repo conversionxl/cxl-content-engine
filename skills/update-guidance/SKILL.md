@@ -40,6 +40,9 @@ the update focused instead of rewriting things that were fine.
    - **Queries with no section** (impressions on a query the article barely covers): add
      them to the topic gaps.
    With no search data, say so and skip this step. Never estimate the numbers.
+   If site analytics is `on`, also pull the page's sessions, engagement and conversions.
+   A page with falling traffic and steady conversions is still doing its job: say so, and
+   set the goal of the refresh to match (see step 3).
 5. Fold in the user's steering. If they said focus on X or leave Y alone, that wins.
 6. Set clear priorities across the audits that follow: outdated claims, missing product or
    feature mentions, and topic gaps versus the current SERP and answer engines.
