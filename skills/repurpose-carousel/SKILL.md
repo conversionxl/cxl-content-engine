@@ -1,6 +1,6 @@
 ---
 name: repurpose-carousel
-description: Turn an article, newsletter or transcript into a LinkedIn or Instagram carousel, with slide-by-slide copy with one idea per slide, plus the caption. Use when repurposing a finished piece into swipeable slides.
+description: Turn an article, newsletter or transcript into a finished LinkedIn or Instagram carousel. Writes the slide copy and caption, then builds the slides in the brand's look as one image per slide and one PDF ready to upload. Use when repurposing a finished piece into swipeable slides.
 ---
 
 # Repurpose into a carousel
@@ -58,12 +58,50 @@ carousel, so it says nothing. Use the piece's own most surprising number, findin
 - One call to action. Follow the link convention in `brand-and-voice.md`; if it gives none,
   ask whether the link goes in the caption or the first comment.
 
-## Output
+## Output: the copy, then the slides
 
-Write `projects/content-engine/content/9-repurposed/{slug}/carousel.md`: the slide-by-slide
-copy (exact text per slide), the caption, and a one-line note per slide on any visual it
-needs (a chart, a screenshot, a diagram). The engine writes the copy; the design is done in
-the user's own design tool. Never use em dashes.
+The job is a carousel someone can upload, not a script for one. Do both parts.
+
+### 1. The copy
+
+Write `projects/content-engine/content/9-repurposed/{slug}/carousel.md`: the exact text per
+slide and the caption. If quality gates are on, the channel gate runs on this file, and the
+person approves or updates the copy before any slide is built.
+
+### 2. The slides
+
+1. **The look.** Read the "Visual look" section of
+   `projects/content-engine/your-setup/brand-and-voice.md`. If it is missing or empty, look
+   for a design guide in this folder (`CLAUDE.md`, `wiki/brand/`, a design skill). If there
+   is none, ask once for the brand's colours (background, text, one accent), its heading
+   and body fonts, and the name or logo text for the footer, and save the answers under
+   "Visual look" so nobody is asked twice. If the person has no answer, use the template as
+   it is and say so.
+2. **Build the file.** Copy `${CLAUDE_PLUGIN_ROOT}/plugin/slides/carousel-template.html` to
+   `projects/content-engine/content/9-repurposed/{slug}/carousel/carousel.html`. Set the
+   values in `:root` to the brand's look and write one slide block per slide, with the text
+   from `carousel.md` word for word. Slides are 1080 x 1350. Use the `accent` slide for the
+   hook, the `dark` slide for the call to action, lists and boxes for stacked lines, and a
+   small source line under any number. A chart or diagram a slide needs is drawn in the
+   HTML. A screenshot is used only if the file exists; never a placeholder box.
+3. **Render.** Run
+   `bash "${CLAUDE_PLUGIN_ROOT}/plugin/render-slides.sh" "<path to carousel.html>"`.
+   It writes `slide-1.png` to `slide-N.png` and `carousel.pdf` next to the HTML. LinkedIn
+   takes the PDF as a document post. Instagram takes the images.
+4. **Look at every slide.** Open each PNG and check it: no text cut off or running into the
+   footer, nothing unreadable, the slide number right. Fix the HTML and render again until
+   every slide is clean. Do not call it done on the render alone.
+5. **Show it.** Give the person the PDF and say where the images are.
+
+**No browser to render with** (the script says `NO_BROWSER`): keep the HTML, tell the person
+it opens in any browser and prints to PDF from there, and say plainly that the images were
+not built.
+
+**Where image files go.** If this folder's `CLAUDE.md` names a place for image files or
+says they stay out of git, pass that folder as the script's second argument and put the
+HTML there too.
+
+Nothing is posted. Uploading is the person's step. Never use em dashes.
 
 Credit: the compression rules and slide flow come from Tarek Reslan's carousel repurposing
 skill, taught in CXL's "Create and repurpose platform-native social content".

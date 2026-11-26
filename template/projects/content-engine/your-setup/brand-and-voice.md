@@ -35,6 +35,15 @@ These are non-negotiable formatting or style rules.
 - Never use em dashes. Use a comma, full stop, or colon instead.
 - {{REPLACE_ME}}
 
+## Visual look
+
+Optional. Used when a carousel is built into slides. Leave it empty and you are asked the
+first time you make one; with no answer, the plain template look is used.
+
+- Background, text and accent colour:
+- Heading font and body font:
+- Name or logo text for the slide footer:
+
 ## Your voice examples
 
 The real source of your voice is the articles in `voice-examples/`. This file captures the

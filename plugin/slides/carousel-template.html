@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Carousel slides, 1080 x 1350 (4:5), for LinkedIn and Instagram.
+     One div with the class "s" per slide. Change the six values in :root to the brand's own.
+     Built by render-slides.sh into one PNG per slide and one PDF. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f2;        /* slide background */
+  --fg:#111111;        /* text */
+  --accent:#2f6fed;    /* cover slide and highlights */
+  --on-accent:#ffffff; /* text on the accent colour */
+  --card:#ffffff;      /* list rows and boxes */
+  --heading-font:'Inter',system-ui,sans-serif;
+  --body-font:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg)}
+@page{size:1080px 1350px;margin:0}
+.s{width:1080px;height:1350px;padding:96px 88px 120px;position:relative;background:var(--bg);color:var(--fg);font-family:var(--body-font);display:flex;flex-direction:column;justify-content:center;page-break-after:always;overflow:hidden}
+.s.accent{background:var(--accent);color:var(--on-accent)}
+.s.dark{background:var(--fg);color:var(--bg)}
+.tag{position:absolute;top:72px;left:88px;font-family:var(--heading-font);font-weight:700;font-size:24px;letter-spacing:.1em;text-transform:uppercase;background:var(--fg);color:var(--bg);border-radius:999px;padding:10px 24px}
+.dark .tag{background:var(--accent);color:var(--on-accent)}
+h1{font-family:var(--heading-font);font-weight:900;font-size:92px;line-height:1.04;margin:0 0 36px}
+h2{font-family:var(--heading-font);font-weight:900;font-size:72px;line-height:1.08;margin:0 0 36px}
+p{font-size:46px;line-height:1.3;margin:0 0 28px}
+.big{font-family:var(--heading-font);font-weight:900;font-size:230px;line-height:.95;margin:0}
+ul{margin:0;padding:0;list-style:none}
+li{font-size:44px;line-height:1.25;margin:0 0 26px;padding:28px 34px;background:var(--card);color:var(--fg);border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+li b{font-family:var(--heading-font);font-weight:900;display:block;font-size:46px}
+.box{background:var(--card);color:var(--fg);border-radius:16px;padding:34px;font-size:42px;box-shadow:0 4px 24px rgba(0,0,0,.08);margin-bottom:26px}
+.src{font-size:26px;opacity:.7;margin-top:28px}
+.foot{position:absolute;left:88px;right:88px;bottom:60px;display:flex;justify-content:space-between;align-items:center;font-family:var(--heading-font);font-weight:900;font-size:30px}
+.foot span:last-child{font-weight:700;font-size:26px}
+img{max-width:100%;border-radius:16px}
+</style>
+</head>
+<body>
+
+<div class="s accent">
+  <span class="tag">TOPIC</span>
+  <p class="big">00%</p>
+  <h2>The hook: the piece's own number or claim.</h2>
+  <p class="src">Where the number comes from</p>
+  <div class="foot"><span>BRAND</span><span>1 / 3 &rarr;</span></div>
+</div>
+
+<div class="s">
+  <span class="tag">LABEL</span>
+  <h2>One idea, as a short heading.</h2>
+  <ul><li><b>First</b>One short line</li><li><b>Second</b>One short line</li></ul>
+  <div class="foot"><span>BRAND</span><span>2 / 3 &rarr;</span></div>
+</div>
+
+<div class="s dark">
+  <span class="tag">NEXT STEP</span>
+  <h1>One call to action.</h1>
+  <p>Where to go.</p>
+  <div class="foot"><span>BRAND</span><span>3 / 3</span></div>
+</div>
+
+<!-- Keep this script: it lets render-slides.sh picture one slide at a time. -->
+<script>var n=parseInt(location.hash.slice(1),10);if(n){document.querySelectorAll('.s').forEach(function(e,i){if(i!==n-1)e.remove()})}</script>
+</body>
+</html>

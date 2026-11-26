@@ -64,11 +64,15 @@ Save each output before starting the next.
 
 | Format | Skill | Output |
 |---|---|---|
-| `carousel` | **repurpose-carousel** | `projects/content-engine/content/9-repurposed/{slug}/carousel.md` |
+| `carousel` | **repurpose-carousel** | `projects/content-engine/content/9-repurposed/{slug}/carousel.md` (the copy), then `carousel/slide-N.png` and `carousel/carousel.pdf` (the slides, built once the copy is approved) |
 | `video` | **repurpose-video** (ask short or long-form if not said) | `.../9-repurposed/{slug}/video-short.md` or `video-long.md` |
 | `newsletter` | **repurpose-newsletter** | `.../9-repurposed/{slug}/newsletter.md` |
 
 ## Gate each piece
+
+**Carousel:** the gate runs on the copy. On approve, go back to the **repurpose-carousel**
+skill for its second part, which builds the slides and the PDF. A carousel is not done
+while it is only a text file.
 
 After each format is written, run the **quality-gate** skill, gate `channel`, on that one
 piece -> `projects/content-engine/content/gates/channel-{format}-{slug}-{date}.md`. Its first
