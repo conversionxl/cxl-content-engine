@@ -14,8 +14,8 @@
 
 | Result | When |
 |---|---|
-| FIX | A must-pass row fails, or a code check fails |
-| REVIEW | No must-pass row fails, and two or more other rows fail or the decision model disagrees with Claude on any row |
+| FIX | A must-pass row fails for Claude, or for every decision model that ran, or a code check fails |
+| REVIEW | Not a FIX, and two or more other rows fail, or the checkers disagree on any row (Claude with a decision model, or one decision model with the other) |
 | PASS | Everything else |
 
 **Decision model settings** (the line at the top): `none`, `jev`, `clef` or `both`. Keys live in `~/.config/decision-models.env`, never in this folder and never in the chat. With `none`, or if a call fails, the gate runs on Claude alone and says so.
