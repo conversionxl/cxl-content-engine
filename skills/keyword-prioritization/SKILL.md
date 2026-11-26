@@ -68,3 +68,5 @@ that do not fit the user, even popular ones. A focused library beats a scattered
 Update `projects/content-engine/content/keyword-ideas.csv` with the four scores and a total, sorted highest first.
 Add a short note on the top 3 to 5 and why they lead. Suggest the user run
 `/content-engine:blog-pipeline "keyword"` on the top one.
+
+**Conversions:** count only the event named on the "Conversion event" line of `data-sources.md`. If it says "not set", report sessions and engagement and say conversions were not read. Never treat "key events" as sales.

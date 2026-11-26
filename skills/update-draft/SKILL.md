@@ -15,10 +15,18 @@ actually happens.
 - Claims audit: `projects/content-engine/content/updates/2-update-claims/{slug}.md`
 - Product audit: `projects/content-engine/content/updates/3-update-product-mentions/{slug}.md`
 - Topic gaps: `projects/content-engine/content/updates/4-update-topic-gaps/{slug}.md`
+- Answer engine audit: `projects/content-engine/content/updates/6-aeo/{slug}.md` (what AI answers cover and cite on this topic, and what they get wrong about the brand)
 - The user's voice: `projects/content-engine/your-setup/brand-and-voice.md` and `projects/content-engine/your-setup/voice-examples/`
 - Any steering the user gave the update pipeline.
 
 ## Approach
+
+**If `voice-examples/` holds no articles** (only its read-me): check whether
+`brand-and-voice.md` points to examples kept somewhere else, and read those. If there are
+none to read, write from the rules in `brand-and-voice.md`, and say so in one line at the
+end of the output: "No voice examples were read, so this follows the written rules only."
+Never say the piece matches examples you did not read.
+
 
 1. Start from the original. Preserve what works: its voice, structure, and the parts the
    guidance marked do-not-touch.

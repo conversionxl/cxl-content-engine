@@ -43,9 +43,14 @@ Count, do not judge. Use the shell:
 
 - **Em dashes:** `grep -c "$(printf '\xe2\x80\x94')" <file>` (the character is written as bytes so this file holds none).
 - **Avoided words:** each word or phrase in the avoid list of
-  `projects/content-engine/your-setup/brand-and-voice.md`, case-insensitive.
-- **The other checks** listed under `code_checks` in the gate's question file (a claim still
-  flagged as unverified, slide length, subject length).
+  `projects/content-engine/your-setup/brand-and-voice.md`, case-insensitive, **in the
+  writer's own prose only**. A match inside a URL, inside quotation marks (someone else's
+  words), inside a code span, or in the proper name of a product or page does not count.
+  List those under "ignored" so the person can see them, and do not fail the check on them.
+- **The other checks** listed under `code_checks` in the gate's question file (slide length,
+  subject length, a claim still flagged). A flagged claim is one the pipeline itself marked
+  as unverified: by `verify-claims` in the create pipeline, by `update-claims` in the
+  refresh pipeline. A claim the user has confirmed in the chat is no longer flagged.
 
 A failed code check is a fail, whatever the rows say.
 
@@ -87,6 +92,9 @@ on your own scores.
 | **FIX** | A must-pass row fails for you, or for every decision model that ran, or a code check fails |
 | **REVIEW** | Not a FIX, and two or more other rows fail, or the checkers disagree on any row (you with a decision model, or one decision model with the other) |
 | **PASS** | Everything else |
+
+**A borderline answer is not a fail and not a disagreement.** List it under "close calls"
+with its number. It changes the result only when you scored the same row "fail".
 
 One decision model failing a must-pass row on its own is a disagreement, not a FIX. The
 first real run showed why: Jev failed "every number names its source" on five items that

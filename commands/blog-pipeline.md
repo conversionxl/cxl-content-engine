@@ -57,8 +57,8 @@ skill returns, save its output file, then move to the next step. The saved files
 user debugs a bad result, so never skip them. If you skip a conditional step, say so.
 
 1. **voice-of-customer-mining** *(conditional)*. Invoke only if `projects/content-engine/inputs/voice-of-customer/`
-   contains files. It mines real buyer language and pain points -> `projects/content-engine/content/0-voice-of-customer/{slug}.md`.
-   If the folder is empty, the skill will surface a one-time nudge to add material; report
+   holds files other than its read-me. It mines real buyer language and pain points -> `projects/content-engine/content/0-voice-of-customer/{slug}.md`.
+   If it holds only the read-me, the skill will surface a one-time nudge to add material; report
    that and continue.
 2. **research** -> `projects/content-engine/content/1-research/{slug}.md`
 3. **answer-engine-audit** (topic mode) -> `projects/content-engine/content/1-research/{slug}-aeo.md`

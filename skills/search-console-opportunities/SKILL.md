@@ -32,6 +32,17 @@ Use the first that applies:
 Leave out branded queries (the company and product names in `your-offer.md`) unless the user
 asks for them: they hide the real picture.
 
+## Filter for relevance before you rank
+
+Search data ranks by size, and the biggest rows are often one-word head terms the site will
+never win a click on ("fallacy", "ga4"). Before looking for patterns, drop:
+
+- one-word queries, unless the word names what the user sells
+- queries on topics outside "what you write about" in `brand-and-voice.md`
+- very long queries that read like a pasted prompt (AI agents searching, not people)
+
+Say how many rows you dropped and give three examples, so the user can overrule you.
+
 ## The five patterns to look for
 
 | Pattern | What the data shows | What it means | Label |
@@ -56,6 +67,11 @@ Weigh four things, in this order:
 4. **Effort:** a title fix is an hour, a rebuild is a week.
 
 Drop anything with too few impressions to judge, and say what threshold you used.
+
+**A high position with almost no clicks may not be a title problem.** If the keyword tool is
+`on`, check whether an AI answer shows above the results for that query. If one does, label
+the row "AI answer above" as well: the fix is to be cited in that answer, not only to
+rewrite the title. If you cannot check, say "AI answer not checked".
 
 ## What each label leads to
 
@@ -84,3 +100,5 @@ dashes.
 
 Credit: the five patterns and the ranking order come from Tarek Reslan's SEO data analysis
 skill, taught in CXL's "Create research-backed and search-optimized content".
+
+**Conversions:** count only the event named on the "Conversion event" line of `data-sources.md`. If it says "not set", report sessions and engagement and say conversions were not read. Never treat "key events" as sales.

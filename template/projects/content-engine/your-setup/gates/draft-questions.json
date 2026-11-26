@@ -52,8 +52,8 @@
   },
   "code_checks": {
     "em_dash": "Fails if the piece contains an em dash (U+2014).",
-    "avoided_words": "Fails if the piece contains a word or phrase from the avoid list in brand-and-voice.md.",
-    "unsourced_flag": "Fails if the piece still carries a claim flagged as unverified by verify-claims."
+    "avoided_words": "Fails if the writer's own prose contains a word or phrase from the avoid list in brand-and-voice.md. Matches inside URLs, quotations, code spans and product names do not count.",
+    "unsourced_flag": "Fails if the piece still carries a claim the pipeline marked as unverified (by verify-claims when creating, by update-claims when refreshing)."
   },
   "thresholds": {
     "fail_below": 0.5,

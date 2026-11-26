@@ -64,7 +64,7 @@ Every stage works on web search alone. Four optional tools make it sharper, and 
 | Keyword and search results data | Ahrefs | Real volume and difficulty, and what competitors rank for that you don't |
 | Your own search performance | Google Search Console | Pages that are seen but not clicked, or one push from page one |
 | Site analytics | Google Analytics 4 | Which pages turn readers into customers |
-| Communities and reviews | Apify or Firecrawl | Full Reddit and review threads |
+| Communities and reviews | A scraper that reads Reddit | Full Reddit and review threads. Firecrawl reads review sites, not Reddit |
 
 Use something else for one of these jobs, such as Semrush or Plausible? Name it in setup and the engine uses that.
 

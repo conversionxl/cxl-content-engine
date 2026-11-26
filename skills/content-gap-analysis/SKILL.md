@@ -14,6 +14,12 @@ all. Output a prioritised list of keyword ideas.
 - A few competitor domains, if the user names them. If not, identify likely competitors
   from who ranks for the user's core topics.
 
+**Which competitors.** Use the rivals named in `projects/content-engine/your-setup/your-offer.md`.
+A keyword tool's "organic competitors" are the sites that share search results with the
+user, which for a publisher means the biggest sites on the web, not the companies a buyer
+compares them with. If the offer file names no rivals, ask the user for two or three before
+running. Do not run the gap against the tool's list.
+
 ## How to run
 
 **Which tools to use.** Read `projects/content-engine/your-setup/data-sources.md`. A job is

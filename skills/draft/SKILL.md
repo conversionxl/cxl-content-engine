@@ -16,6 +16,13 @@ spots are all decided. Your job is to render them in the user's voice.
 
 ## How to write in their voice
 
+**If `voice-examples/` holds no articles** (only its read-me): check whether
+`brand-and-voice.md` points to examples kept somewhere else, and read those. If there are
+none to read, write from the rules in `brand-and-voice.md`, and say so in one line at the
+end of the output: "No voice examples were read, so this follows the written rules only."
+Never say the piece matches examples you did not read.
+
+
 Do not rely only on the rules. Read the voice examples and match their feel: how they open,
 sentence length and rhythm, how they use evidence, their level of formality, their recurring
 moves. The examples outrank the written rules when the two disagree.
