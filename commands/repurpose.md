@@ -68,6 +68,17 @@ Save each output before starting the next.
 | `video` | **repurpose-video** (ask short or long-form if not said) | `.../9-repurposed/{slug}/video-short.md` or `video-long.md` |
 | `newsletter` | **repurpose-newsletter** | `.../9-repurposed/{slug}/newsletter.md` |
 
+## Gate each piece
+
+After each format is written, run the **quality-gate** skill, gate `channel`, on that one
+piece -> `projects/content-engine/content/gates/channel-{format}-{slug}-{date}.md`. Its first
+row is the one that matters most here: every number and claim in the piece is also in the
+source article.
+
+Show the result next to the file. On **FIX** or **REVIEW**, ask once whether to fix the rows
+that failed and gate again, or keep the piece as it is. Gate a piece at most twice. If gates
+are off in `quality-gates.md`, skip this and say so in one line.
+
 ## Rules for every format
 
 - **Rebuild, do not summarise.** Each format leads with what works on its platform.
@@ -77,5 +88,5 @@ Save each output before starting the next.
 
 ## When done
 
-List the files written. Remind the user that nothing is posted or sent: publishing is their
+List the files written, each with its gate result. Remind the user that nothing is posted or sent: publishing is their
 step, in their own tools. Never use em dashes.

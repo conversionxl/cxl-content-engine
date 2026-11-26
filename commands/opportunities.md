@@ -74,12 +74,20 @@ Write `projects/content-engine/content/opportunities/{date}.md`:
 1. **Do these first:** the top five, each with the exact command to run.
 2. **The full list,** 20 rows at most:
 
-   | Opportunity | Type | Evidence | Why now | Next step |
-   |---|---|---|---|---|
+   | Opportunity | Type | Evidence | Our angle | If AI answers it | Why now | Next step |
+   |---|---|---|---|---|---|---|
 
    - **Type** is one of: new article, refresh, title fix, repurpose.
    - **Evidence** names the source and its numbers or links (Search Console figures, the
      threads, the review theme, the customer quote, the competitor page).
+   - **Our angle** names what the user has that the pages ranking now do not: their own
+     data, a customer quote from the voice-of-customer files, a point of view from
+     `brand-and-voice.md`, a method from `your-offer.md`. If there is none, write "none
+     found". Do not invent one.
+   - **If AI answers it** says whether an AI answer shows for the query (from the keyword
+     tool's results-page features, or one web search), and how the piece still earns a
+     visit or a citation: a tool, original data, a comparison, a worked example. "Not
+     checked" is allowed. A guess is not.
    - **Next step** is the command:
      `/content-engine:blog-pipeline "..."`, `/content-engine:update-pipeline "url"`, the
      `title-and-meta` skill, or `/content-engine:repurpose "slug"`.
@@ -91,9 +99,24 @@ what the user sells outranks a bigger generic one. A fix to a page that already 
 outranks a new page, when both serve the same topic. Merge duplicates: the same topic found
 in Search Console and in a community thread is one row with two pieces of evidence.
 
+## Strategy gate
+
+Before showing the list, run the **quality-gate** skill, gate `strategy`, on each of the top
+five, one at a time. This is the check that the list fits what the user sells and rests on
+evidence, before anything is written.
+
+- Add a **Gate** column to "Do these first" and to the full list: PASS, REVIEW or FIX, and
+  who checked (Claude, or Claude and the decision model). Rows outside the top five say
+  "not gated".
+- Under the list, add a section **Strategy gate** with each failed row and each
+  disagreement, one line each.
+- An item that gets FIX stays in the list, below the items that passed, with the row that
+  failed. Do not drop it: the user may know something the evidence does not show.
+- If gates are off in `quality-gates.md`, skip this section and say so in one line.
+
 ## When done
 
-Show the top five in the chat with their commands, and point to the file. Ask which one to
+Show the top five in the chat with their gate result and their commands, and point to the file. Ask which one to
 start. Do not start a pipeline unasked.
 
 Follow the data-source toggles. Use a figure only from a page or file you opened, never from a search result summary. Never invent a volume, a position, a quote or a thread: if a

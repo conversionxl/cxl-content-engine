@@ -1,0 +1,67 @@
+{
+  "about": "Draft gate, run on a finished article before the preview. State: a header with the target keyword, the offer and the voice in three lines, then the article.",
+  "questions": {
+    "D1": {
+      "type": "noul",
+      "instructions": "The first screen of the article answers the question behind the target keyword."
+    },
+    "D2": {
+      "type": "noul",
+      "instructions": "Every statistic and factual claim in the article has a link or a named source next to it."
+    },
+    "D3": {
+      "type": "noul",
+      "instructions": "Every statement about a competitor has a link or a named source next to it."
+    },
+    "D4": {
+      "type": "noul",
+      "instructions": "The article contains at least one example, number or experience that comes from the brand itself."
+    },
+    "D5": {
+      "type": "noul",
+      "instructions": "The article says something the pages ranking now do not say."
+    },
+    "D6": {
+      "type": "noul",
+      "instructions": "The section headers are written as questions or as claims."
+    },
+    "D7": {
+      "type": "noul",
+      "instructions": "Each section opens with a sentence that answers its header."
+    },
+    "D8": {
+      "type": "noul",
+      "instructions": "The article uses the customers' own words where it describes their problem."
+    },
+    "D9": {
+      "type": "noul",
+      "instructions": "Every statement about the brand's product matches the offer described in the header."
+    },
+    "D10": {
+      "type": "noul",
+      "instructions": "The article has one call to action."
+    },
+    "D11": {
+      "type": "noul",
+      "instructions": "The article reads like the voice described in the header."
+    },
+    "D12": {
+      "type": "noul",
+      "instructions": "A reader could act on the article without needing another source."
+    }
+  },
+  "code_checks": {
+    "em_dash": "Fails if the piece contains an em dash (U+2014).",
+    "avoided_words": "Fails if the piece contains a word or phrase from the avoid list in brand-and-voice.md.",
+    "unsourced_flag": "Fails if the piece still carries a claim flagged as unverified by verify-claims."
+  },
+  "thresholds": {
+    "fail_below": 0.5,
+    "borderline_below": 0.65
+  },
+  "must_pass": [
+    "D2",
+    "D3",
+    "D9"
+  ]
+}

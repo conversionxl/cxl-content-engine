@@ -1,0 +1,58 @@
+{
+  "about": "Channel gate, run on each repurposed piece (carousel, video script, newsletter). Ask the four C questions plus the ones marked for that channel. State: a header with the voice in three lines and the source article, then the one piece.",
+  "questions": {
+    "C1": {
+      "type": "noul",
+      "instructions": "Every number and claim in the piece also appears in the source article given in the header."
+    },
+    "C2": {
+      "type": "noul",
+      "instructions": "The opening states a specific claim, number or question from the source article."
+    },
+    "C3": {
+      "type": "noul",
+      "instructions": "The piece has one call to action."
+    },
+    "C4": {
+      "type": "noul",
+      "instructions": "The piece reads like the voice described in the header."
+    },
+    "K1": {
+      "type": "noul",
+      "instructions": "Carousel only: each slide carries one idea."
+    },
+    "K2": {
+      "type": "noul",
+      "instructions": "Carousel only: the caption adds context that is not on the slides."
+    },
+    "V1": {
+      "type": "noul",
+      "instructions": "Video only: the script opens on the claim or the result, with no greeting."
+    },
+    "V2": {
+      "type": "noul",
+      "instructions": "Video only: the ending answers what the opening raised."
+    },
+    "N1": {
+      "type": "noul",
+      "instructions": "Newsletter only: the edition gives the reader one useful idea without clicking through."
+    },
+    "N2": {
+      "type": "noul",
+      "instructions": "Newsletter only: the subject line says what is inside the edition."
+    }
+  },
+  "code_checks": {
+    "em_dash": "Fails if the piece contains an em dash (U+2014).",
+    "avoided_words": "Fails if the piece contains a word or phrase from the avoid list in brand-and-voice.md.",
+    "slide_length": "Carousel only: fails if a slide has more than 40 words.",
+    "subject_length": "Newsletter only: fails if a subject line is over 60 characters."
+  },
+  "thresholds": {
+    "fail_below": 0.5,
+    "borderline_below": 0.65
+  },
+  "must_pass": [
+    "C1"
+  ]
+}

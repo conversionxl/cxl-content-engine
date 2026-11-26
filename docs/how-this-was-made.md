@@ -106,6 +106,16 @@ Deals**, Nick Christensen's fictional brand (MIT), already set up: voice rules, 
 sample articles, customer reviews and call notes, and a made-up Search Console export. Add
 `example` to any command and it runs there, in its own folder.
 
+### 7. Quality gates (0.5.0)
+
+Three gates, following the design of CXL's Campaign Engine: one yes or no statement per row,
+a few must-pass rows, and a decision model (Jev or Clef) as an optional second opinion that
+never approves anything. The rows come from the same courses as the tactics: Gaetano DiNardi
+(does it lead to the offer, is every competitor claim sourced), Andy Crestodina (does it say
+something the top results don't), Steve Toth (headers as questions, product facts that match),
+Alex Birkett (how it earns a citation), Tarek Reslan (intent, usefulness, the repurposing
+rows) and Ryan Law (verify claims).
+
 ## The result
 
 Same dependable structure Ryan designed, with a gentle on-ramp for new users, proven B2B
