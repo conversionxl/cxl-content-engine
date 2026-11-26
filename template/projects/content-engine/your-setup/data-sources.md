@@ -16,6 +16,7 @@ To connect a tool, you add it as an MCP server in Claude Code. See
 | Ahrefs MCP | off | Keyword volume, parent topic, related terms, SERP data |
 | Google Search Console MCP | off | Your real queries, impressions, positions |
 | Google Analytics MCP | off | Traffic and conversion data for your pages |
+| Web scraper (Apify, Firecrawl or similar) | off | Full Reddit threads and review pages for `trend-signals` |
 
 Change a value to `on` only after you have connected that tool. The engine will never
 invent metrics it cannot retrieve. If a source is `off`, it uses the built-in web

@@ -77,6 +77,26 @@ These show up as upgrades across nearly every skill, plus three new pieces.
 - Every skill is **biased toward B2B marketing:** buyer-journey stages, decision factors, and
   comparison content.
 
+### 5. The stages before and after the article (0.2.0, November 2026)
+
+Tarek Reslan taught three CXL courses on a second pair of systems, `ai-seo-system` and
+`ai-content-system`. Running two methods for one job confused people, so his material was
+folded into this engine where it covered ground the pipeline did not:
+
+- **`/content-engine:opportunities`** (command) and the skills **`search-console-opportunities`**,
+  **`trend-signals`** and **`title-and-meta`**: find what to write from your own search data,
+  from communities and from reviews, before a keyword is chosen.
+- **`/content-engine:repurpose`** (command) and the skills **`repurpose-carousel`**,
+  **`repurpose-video`** and **`repurpose-newsletter`**: rebuild a finished article for other
+  platforms.
+- **`verify-claims`** gained his claim labels and six quality checks, so there is still one
+  gate before the preview.
+
+What was left out, on purpose: his project-management, reporting, technical SEO, social
+analytics and content calendar skills (not content creation), his second article writer and
+optimizer (the pipeline already does that job), and example hooks that could sit on any
+post. Measuring how often AI names you is the AI visibility builds, not this engine.
+
 ## The result
 
 Same dependable structure Ryan designed, with a gentle on-ramp for new users, proven B2B

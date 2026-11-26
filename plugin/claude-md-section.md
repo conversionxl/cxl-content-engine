@@ -6,19 +6,21 @@
 
 <!-- Added by the content-engine plugin. Edit freely. -->
 
-**A keyword or a published URL in, a publish-ready article out.** The engine works through a chain of small, single-purpose skills. Each skill saves its output to a file, so you can review and fix one step without starting over.
+**Four stages: find what to write, create it, keep it current, repurpose it.** The engine works through a chain of small, single-purpose skills. Each skill saves its output to a file, so you can review and fix one step without starting over.
 
 | Folder | What goes in it |
 |---|---|
 | `projects/content-engine/your-setup/` | Your brand and voice, your offer, your data sources, your CMS connection, and your best articles in `voice-examples/`. Filled in by `/content-engine:setup`. |
-| `projects/content-engine/inputs/` | `keywords.csv`, and `voice-of-customer/` for call transcripts, tickets and survey answers. Voice-of-customer files stay on this machine. |
-| `projects/content-engine/content/` | One numbered folder per step, one file per article, named by its slug. `updates/` holds the refresh flow. |
+| `projects/content-engine/inputs/` | `keywords.csv`, `search-console/` for an export if Search Console is not connected, and `voice-of-customer/` for call transcripts, tickets and survey answers. Voice-of-customer files stay on this machine. |
+| `projects/content-engine/content/` | One numbered folder per step, one file per article, named by its slug. `opportunities/` holds the ranked lists of what to make next, `updates/` the refresh flow, `9-repurposed/` the carousels, video scripts and newsletters. |
 
 | Command | What it does |
 |---|---|
 | `/content-engine:setup` | Adds the engine to this folder and personalises it: documents you already have first, questions only for the gaps. Run it again any time to change something. |
-| `/content-engine:blog-pipeline "keyword" [notes]` | New article: research, answer engine audit, outline, draft, claims check, preview. |
-| `/content-engine:update-pipeline "url" [notes]` | Refreshes a published article and shows the full new version with changes marked. |
+| `/content-engine:opportunities [topic]` | Stage 1, find: one ranked list from your Search Console data, search questions, communities, reviews, customer language and competitor gaps, with the command to run for each item. |
+| `/content-engine:blog-pipeline "keyword" [notes]` | Stage 2, create: research, answer engine audit, outline, draft, claims and quality check, preview. |
+| `/content-engine:update-pipeline "url" [notes]` | Stage 3, refresh: updates a published article and shows the full new version with changes marked. |
+| `/content-engine:repurpose "slug or url" [formats]` | Stage 4, repurpose: a finished article into a carousel, a video script or a newsletter edition. |
 | `/content-engine:llms-brand-page` | One page that tells answer engines who you are, built from your setup and how AI describes you today. |
 
 **Rules for the engine:**
@@ -34,4 +36,6 @@
 - **Your own folder names.** If `.claude/folders.json` exists, every folder named in this section is read at its mapped name.
 - **Make it yours.** These skills are a starting point. To change how a step works for good, download the repository and edit its `SKILL.md` (the advanced route in the README), or tell Claude the change you want for this run.
 
-Credits: the pipeline of chained skills, saved step outputs and the master command are Ryan Law's approach at Ahrefs. The B2B, voice-of-customer and answer engine tactics come from CXL courses by Andy Crestodina, Gaetano DiNardi, Alex Birkett and Steve Toth.
+- **Repurposing adds nothing new.** A carousel, script or newsletter carries only claims that are in the source article, with their sources. Nothing is posted or sent by the engine.
+
+Credits: the pipeline of chained skills, saved step outputs and the master command are Ryan Law's approach at Ahrefs. The B2B, voice-of-customer and answer engine tactics come from CXL courses by Andy Crestodina, Gaetano DiNardi, Alex Birkett and Steve Toth. The Search Console opportunity patterns, trend signals from communities and reviews, the title check, the quality check and the repurposing formats come from Tarek Reslan's CXL courses and his two systems.

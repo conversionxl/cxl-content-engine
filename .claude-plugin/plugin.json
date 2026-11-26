@@ -1,9 +1,19 @@
 {
   "name": "content-engine",
-  "version": "0.1.0",
-  "description": "Content engine for B2B marketers: a keyword or a published URL in, a researched, fact-checked article in your voice out. Small skills chained into two pipelines, every step saved to a file so you can fix the one that went wrong. Built on Ryan Law's (Ahrefs) content engineering approach, upgraded with CXL course tactics. Start with /content-engine:setup in your personal OS folder.",
-  "author": { "name": "CXL", "email": "hesh@cxl.com" },
+  "version": "0.2.0",
+  "description": "Content engine for B2B marketers, in four stages: find what to write from your search data, communities and reviews; create a researched, fact-checked article in your voice; refresh published ones; repurpose into carousels, video scripts and newsletters. Small skills chained into pipelines, every step saved to a file. Built on Ryan Law's (Ahrefs) approach, with CXL course tactics. Start with /content-engine:setup.",
+  "author": {
+    "name": "CXL",
+    "email": "hesh@cxl.com"
+  },
   "homepage": "https://github.com/conversionxl/cxl-content-engine",
   "repository": "https://github.com/conversionxl/cxl-content-engine",
-  "keywords": ["cxl", "content-engine", "content", "seo", "aeo", "b2b-marketing"]
+  "keywords": [
+    "cxl",
+    "content-engine",
+    "content",
+    "seo",
+    "aeo",
+    "b2b-marketing"
+  ]
 }
