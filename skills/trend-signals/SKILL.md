@@ -60,6 +60,12 @@ For another field, ask: where do people with this job gather, and which communit
 the tools they use? Slack and Discord communities, LinkedIn comment threads and niche forums
 count too, when the user can paste or export them.
 
+**If a community page cannot be read** (Reddit often blocks plain fetches): search the web
+for `site:reddit.com/r/SUBREDDIT QUERY` and read the threads that come back. If that also
+fails, do not fill the gap with vendor blog posts. Say which communities could not be read,
+and give the user the two ways to fix it: paste two or three threads into the chat, or
+connect a scraper and switch it on in `data-sources.md`.
+
 From each community, pull recurring questions, frustrations, requests for help, debates and
 misconceptions, with the thread link. Keep the exact wording. Do not summarise a thread into
 your own words: the phrasing is the value.
@@ -100,6 +106,10 @@ Write `projects/content-engine/content/opportunities/trends-{topic-slug}-{YYYY-M
 
 For the top article ideas, give the command to run next:
 `/content-engine:blog-pipeline "idea" [the angle and the quotes to use]`.
+
+**Open the page before you use it.** A number, quote or claim counts only if you opened the
+page it is on. A figure seen in a search result summary is a lead to follow, not a source:
+open it, or leave it out.
 
 Community and review quotes are public, but leave out usernames and anything that identifies
 a private person. Never use em dashes.

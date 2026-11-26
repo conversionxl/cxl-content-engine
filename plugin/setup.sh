@@ -2,6 +2,7 @@
 # Adds the Content engine to a personal OS folder (default: the current folder):
 # gitignore block first, then the setup files, inputs and stage folders, then the
 # CLAUDE.md section. Never overwrites a file that already exists.
+# A second argument of "example" also copies the Acme Deals example.
 set -e
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TARGET="${1:-$PWD}"
@@ -42,6 +43,22 @@ while IFS= read -r f; do
   created=$((created+1))
 done < <(find "$src" -type f ! -name '.DS_Store')
 
+# 2b. Example mode: the Acme Deals example, already set up, in its own folder.
+# Nothing in it is overwritten, and it never touches the user's own setup.
+ex=""
+if [ "${2:-}" = "example" ]; then
+  exsrc="$ROOT/example"; exc=0; exk=0
+  while IFS= read -r f; do
+    dest="$project/example/${f#"$exsrc"/}"
+    if [ -e "$dest" ]; then exk=$((exk+1)); continue; fi
+    mkdir -p "$(dirname "$dest")"
+    cp "$f" "$dest"
+    exc=$((exc+1))
+  done < <(find "$exsrc" -type f ! -name '.DS_Store')
+  for d in opportunities 9-repurposed; do mkdir -p "$project/example/content/$d"; done
+  ex="$rel/example/ (Acme Deals, a fictional brand). Files created: $exc. Existing files kept: $exk."
+fi
+
 # 3. The Content engine section in CLAUDE.md, once.
 if grep -q '^## Content engine' CLAUDE.md; then
   cm="already there"
@@ -72,6 +89,7 @@ echo "Files created: $created. Existing files kept: $kept."
 echo "CLAUDE.md Content engine section: $cm"
 echo "Engine folder: $rel/"
 echo "Personalisation: $state"
+[ -n "$ex" ] && echo "Example folder: $ex"
 if [ -n "$found" ]; then echo "Brand brain found:$found"; else echo "Brand brain found: none"; fi
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   probe="$project/inputs/voice-of-customer/probe-$$.md"; : > "$probe"

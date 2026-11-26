@@ -59,6 +59,19 @@ Anything you add after the keyword or URL steers the run: angles to take, produc
 
 Stage 1 works on built-in web search alone. Connecting Search Console adds your own numbers, which is where the fastest wins are.
 
+## Try it on Acme first
+
+Not ready to set up your own brand? The engine ships with **Acme Deals**, a fictional brand that is already set up, with sample articles, customer reviews and a made-up Search Console export. Add `example` as the first word after any command:
+
+```
+/content-engine:setup example
+/content-engine:opportunities example
+/content-engine:blog-pipeline example "white label software for agencies"
+/content-engine:repurpose example "buy-once-bill-monthly" carousel newsletter
+```
+
+Example runs read and write in `projects/content-engine/example/` only. They never touch your own setup or content.
+
 ## Where your work goes
 
 | Folder | What is in it |
@@ -111,6 +124,7 @@ The full list is in [docs/how-this-was-made.md](docs/how-this-was-made.md).
 ## Credits
 
 - **Ryan Law** and **Ahrefs**, for the content engineering approach this is built on.
+- **Nick Christensen**, for Acme Deals and its customer data ([ship-icp-ads-automate-monitoring](https://github.com/nickyc1/ship-icp-ads-automate-monitoring), MIT), the example brand.
 - **Tarek Reslan**, for the find and repurpose stages, from his CXL courses "Create research-backed and search-optimized content", "Detect trends through reviews and communities" and "Create and repurpose platform-native social content".
 - The **CXL courses** these tactics come from:
   - [Build optimized B2B content funnels with AI](https://cxl.com/institute/online-courses/b2b-lead-generation-with-ai/), Andy Crestodina

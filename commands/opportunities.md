@@ -1,6 +1,6 @@
 ---
 description: Find what to write or update next. Reads your Search Console data, what your audience asks in search, communities and reviews, your customers' own words and your competitors' coverage, and returns one ranked list with the command to run for each item. Usage: /content-engine:opportunities [topic or notes]
-argument-hint: [topic to focus on, or notes]
+argument-hint: [example] [topic to focus on, or notes]
 ---
 
 Find the next pieces worth making for: **$ARGUMENTS**
@@ -14,6 +14,31 @@ overwrites a file, and prints where the engine folder is and whether personalisa
   first, and why: the engine will not rank topics against placeholder brand data. Do not continue.
 - If `.claude/folders.json` exists, every `projects/content-engine/...` path in this command and
   in the skills it invokes is read and written under the engine folder the script printed.
+
+## Example mode
+
+If the first word of the input is `example`, this run is on **Acme Deals**, a fictional brand
+that is already set up. Run the setup script with `example` as a second argument:
+`bash "${CLAUDE_PLUGIN_ROOT}/plugin/setup.sh" "<this folder's absolute path>" example`
+
+- The script prints `Example folder:`. For this whole run, every `projects/content-engine/...`
+  path in this command and in the skills it invokes is read and written under that folder
+  instead (`.../example/your-setup/`, `.../example/inputs/`, `.../example/content/`). Tell each
+  skill so when you invoke it.
+- Ignore the `Personalisation:` line. The example needs no setup, and never reads or changes
+  the user's own setup or content.
+- Open with one line: "Running on Acme Deals, a fictional brand. Nothing here touches your
+  own setup."
+- Take `example` off the input, then parse the rest as usual. Where this command expects a
+  published URL, example mode takes a slug and reads
+  `content/8-publish/{slug}.md` in the example folder as the published article.
+- The Search Console export in the example is made up. Label any figure from it "dummy
+  data" in the output. Web search results are real: keep the two apart.
+- Every next-step command you print carries `example` as its first word, and names a
+  published article by its slug, not its URL
+  (`/content-engine:update-pipeline example "still-using-it-in-six-months"`). If the example
+  folder has no file for a slug, say so.
+- Nothing is published and no CMS is asked about.
 
 ## Parse the input
 
@@ -71,5 +96,5 @@ in Search Console and in a community thread is one row with two pieces of eviden
 Show the top five in the chat with their commands, and point to the file. Ask which one to
 start. Do not start a pipeline unasked.
 
-Follow the data-source toggles. Never invent a volume, a position, a quote or a thread: if a
+Follow the data-source toggles. Use a figure only from a page or file you opened, never from a search result summary. Never invent a volume, a position, a quote or a thread: if a
 number cannot be retrieved, leave it blank and say so. Never use em dashes.
