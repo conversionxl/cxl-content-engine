@@ -101,22 +101,28 @@ in Search Console and in a community thread is one row with two pieces of eviden
 
 ## Strategy gate
 
-Before showing the list, run the **quality-gate** skill, gate `strategy`, on each of the top
-five, one at a time. This is the check that the list fits what the user sells and rests on
-evidence, before anything is written.
+Run the **quality-gate** skill, gate `strategy`, on each of the top five, one at a time.
+This is the check that the list fits what the user sells and rests on evidence, before
+anything is written.
 
-- Add a **Gate** column to "Do these first" and to the full list: PASS, REVIEW or FIX, and
-  who checked (Claude, or Claude and the decision model). Rows outside the top five say
-  "not gated".
-- Under the list, add a section **Strategy gate** with each failed row and each
-  disagreement, one line each.
-- An item that gets FIX stays in the list, below the items that passed, with the row that
-  failed. Do not drop it: the user may know something the evidence does not show.
+- Add a **Check** column to "Do these first" and to the full list: Ready, Needs a look or
+  Needs fixing. Rows outside the top five say "not checked".
+- Show one combined result for the five, in the skill's format: what needs fixing, what is
+  worth a look, what is good.
+- **Then stop and ask:** approve the list, update it, or stop. Do not suggest a pipeline to
+  run until the user approves.
+- **On update,** edit the list (fill a missing angle, check for an AI answer, reorder, drop
+  an item the user rejects), then run the gate again on the items that changed.
+- **Stamp the list.** The status block at the top of the list says which round it is, what
+  was edited after each check, and whether the user approved it. Anyone opening the file
+  must be able to tell whether it changed after the gate.
+- An item that needs fixing stays in the list, below the items that passed, with the reason.
+  Do not drop it without the user's say.
 - If gates are off in `quality-gates.md`, skip this section and say so in one line.
 
 ## When done
 
-Show the top five in the chat with their gate result and their commands, and point to the file. Ask which one to
+Once the user has approved the list, show the top five with their commands, and point to the file. Ask which one to
 start. Do not start a pipeline unasked.
 
 Follow the data-source toggles. Use a figure only from a page or file you opened, never from a search result summary. Never invent a volume, a position, a quote or a thread: if a

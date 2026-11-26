@@ -10,13 +10,14 @@
 1. **Claude scores every row** pass, partly or fail, with the line of evidence it used. If you use another model in place of Claude, that model does this step.
 2. **Code checks run.** Things a model counts badly are counted: em dashes, avoided words, slide and subject length.
 3. **A decision model answers the same rows, if you switched one on.** Jev (TypeSafe) or Clef (Cloudflare) returns a probability per row. It is a second opinion. It never changes Claude's score and never approves anything.
-4. **One result:** PASS, REVIEW or FIX, with the rows behind it. You decide what happens next.
+4. **One result, in plain words:** Ready, Needs a look or Needs fixing, with what to fix and where.
+5. **You decide, every time:** approve and carry on, update and check again, or stop. A gate never moves the work on by itself, and the piece carries a status line saying which of these happened.
 
 | Result | When |
 |---|---|
-| FIX | A must-pass row fails for Claude, or for every decision model that ran, or a code check fails |
-| REVIEW | Not a FIX, and two or more other rows fail, or the checkers disagree on any row (Claude with a decision model, or one decision model with the other) |
-| PASS | Everything else |
+| Needs fixing | A must-pass row fails for Claude, or for every decision model that ran, or a code check fails |
+| Needs a look | Not that, and two or more other rows fail, or the checkers disagree on any row |
+| Ready | Everything else |
 
 **Decision model settings** (the line at the top): `none`, `jev`, `clef` or `both`. Keys live in `~/.config/decision-models.env`, never in this folder and never in the chat. With `none`, or if a call fails, the gate runs on Claude alone and says so.
 

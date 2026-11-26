@@ -60,10 +60,10 @@ skill returns, save its output file, then move to the next step. Never skip the 
 6. **update-topic-gaps** (gaps vs the SERP and what answer engines cite) -> `projects/content-engine/content/updates/4-update-topic-gaps/{slug}.md`
 7. **update-draft** (consolidate the audits into a revised article) -> `projects/content-engine/content/updates/7-updated-draft/{slug}.md`
 8. **quality-gate**, gate `draft`, on the updated draft -> `projects/content-engine/content/gates/draft-{slug}-{date}.md`.
-   Show the result. On **FIX** or **REVIEW**, stop and ask the user: fix the rows that
-   failed (send it back to `update-draft` with the failed rows as steering, then gate once
-   more), or carry on to the preview as it is. Gate at most twice in one run. If gates are
-   off in `quality-gates.md`, skip this step and say so in one line.
+   Show the result and **stop**. The skill asks: approve, update or stop. Do not build the
+   preview until the user approves. On update, the fixes are made and the gate runs again,
+   as many rounds as the user wants. If gates are off in `quality-gates.md`, skip this step
+   and say so in one line.
 9. **update-preview** (full refreshed article with changes marked inline) -> `projects/content-engine/content/updates/5-update-preview/{slug}.html`
 
 ## When done

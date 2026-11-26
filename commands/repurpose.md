@@ -75,9 +75,9 @@ piece -> `projects/content-engine/content/gates/channel-{format}-{slug}-{date}.m
 row is the one that matters most here: every number and claim in the piece is also in the
 source article.
 
-Show the result next to the file. On **FIX** or **REVIEW**, ask once whether to fix the rows
-that failed and gate again, or keep the piece as it is. Gate a piece at most twice. If gates
-are off in `quality-gates.md`, skip this and say so in one line.
+Show the result and **stop** before the next format. The skill asks: approve, update or
+stop. On update, the fixes are made and the gate runs again. Only then move to the next
+format. If gates are off in `quality-gates.md`, skip this and say so in one line.
 
 ## Rules for every format
 
