@@ -68,6 +68,18 @@ Every stage works on web search alone. Four optional tools make it sharper, and 
 
 Use something else for one of these jobs, such as Semrush or Plausible? Name it in setup and the engine uses that.
 
+## Quality gates
+
+The engine checks its own work at three points, against yes or no checks built from CXL courses. Each gate returns PASS, REVIEW or FIX with the rows behind it, and then you decide.
+
+| Gate | When | What it asks |
+|---|---|---|
+| Strategy | After Find, before anything is written | Does this lead to what you sell? Is the evidence from more than one source? Is a refresh enough? |
+| Draft | On the finished article, before the preview | Is every claim sourced? Does it say something the top results don't? Is every product fact right? |
+| Channel | On each carousel, video script or newsletter | Is every number also in the source article? Is the opening specific to this piece? |
+
+Claude runs the gates. If you have a decision model, Jev (TypeSafe) or Clef (Cloudflare), setup asks whether to switch it on as a second check. It shows where it disagrees with Claude and never approves anything. The checks live in `your-setup/quality-gates.md`: change them, or switch the gates off there.
+
 ## Try it on Acme first
 
 Not ready to set up your own brand? The engine ships with **Acme Deals**, a fictional brand that is already set up, with sample articles, customer reviews and a made-up Search Console export. Add `example` as the first word after any command:

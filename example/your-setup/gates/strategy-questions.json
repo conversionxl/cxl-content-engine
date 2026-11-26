@@ -1,0 +1,54 @@
+{
+  "about": "Strategy gate, run after the Find stage. One opportunity at a time. State: a header with the offer and the brand's subjects, then the one opportunity row with its evidence.",
+  "questions": {
+    "S1": {
+      "type": "noul",
+      "instructions": "The opportunity leads naturally to something in the offer described in the header."
+    },
+    "S2": {
+      "type": "noul",
+      "instructions": "The person searching this topic is close to choosing a product or service like the one in the header."
+    },
+    "S3": {
+      "type": "noul",
+      "instructions": "The evidence for the opportunity comes from at least two different sources."
+    },
+    "S4": {
+      "type": "noul",
+      "instructions": "Every number in the evidence names the tool or page it came from."
+    },
+    "S5": {
+      "type": "noul",
+      "instructions": "The opportunity names data, customer language or a point of view of the brand's own that the pages ranking now do not have."
+    },
+    "S6": {
+      "type": "noul",
+      "instructions": "The topic belongs to the subjects the brand writes about, as listed in the header."
+    },
+    "S7": {
+      "type": "noul",
+      "instructions": "The next step is the smallest one the evidence supports: a title fix or a refresh where a page already ranks, a new article only where none does."
+    },
+    "S8": {
+      "type": "noul",
+      "instructions": "The opportunity says how the piece earns a visit or a citation when an AI answer covers the topic."
+    },
+    "S9": {
+      "type": "noul",
+      "instructions": "The difficulty of the keyword and the sites ranking now do not rule the brand out."
+    }
+  },
+  "code_checks": {
+    "has_next_step": "Fails if the opportunity has no command or skill named as its next step.",
+    "has_evidence": "Fails if the Evidence cell is empty."
+  },
+  "thresholds": {
+    "fail_below": 0.5,
+    "borderline_below": 0.65
+  },
+  "must_pass": [
+    "S1",
+    "S4",
+    "S6"
+  ]
+}

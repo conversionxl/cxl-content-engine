@@ -67,8 +67,14 @@ user debugs a bad result, so never skip them. If you skip a conditional step, sa
 6. **product-mentions** -> `projects/content-engine/content/4-outlines-annotated/{slug}.md`
 7. **draft** -> `projects/content-engine/content/5-drafts/{slug}.md`
 8. **verify-claims** -> `projects/content-engine/content/6-drafts-cited/{slug}.md`
-9. **visuals** (only if turned on in `projects/content-engine/your-setup/data-sources.md`) -> `projects/content-engine/content/images/{slug}/`
-10. **preview** -> `projects/content-engine/content/7-preview/{slug}.html`
+9. **quality-gate**, gate `draft`, on the cited draft -> `projects/content-engine/content/gates/draft-{slug}-{date}.md`.
+   Show the result. On **FIX** or **REVIEW**, stop and ask the user: fix the rows that
+   failed (send the draft back to the `draft` or `verify-claims` step with the failed rows as
+   steering, then gate once more), or carry on to the preview as it is. On **PASS**, carry on.
+   Gate at most twice in one run: after the second result, the user decides. If gates are
+   off in `quality-gates.md`, skip this step and say so in one line.
+10. **visuals** (only if turned on in `projects/content-engine/your-setup/data-sources.md`) -> `projects/content-engine/content/images/{slug}/`
+11. **preview** -> `projects/content-engine/content/7-preview/{slug}.html`
 
 Apply the steering context and the user's `projects/content-engine/your-setup/` files at every relevant step.
 

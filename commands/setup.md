@@ -73,6 +73,41 @@ Read the current state of every file in `projects/content-engine/your-setup/` so
 the user already filled in. If setup was done before, treat this as an update: tell them
 what is already set and ask what they want to change, rather than starting from scratch.
 
+## Quality gates: ask this first
+
+The engine checks its own work at three points, with a list of yes or no checks built from
+CXL courses: after it finds what to write (does this fit what you sell, and is the evidence
+there?), on the finished article (is every claim sourced, does it say something the top
+results don't?), and on each repurposed piece (does it add anything the article did not
+say?). Read `projects/content-engine/your-setup/quality-gates.md` and say this in three
+lines. Claude runs the checks. Nothing needs setting up for that.
+
+Then ask one question:
+
+> Do you use a decision model, Jev (TypeSafe) or Clef (Cloudflare), that you want as a
+> second check at each gate? It answers the same checks in under a second and shows where it
+> disagrees with Claude. Most people say no: it needs an API key. Without one, Claude runs
+> the gates on its own.
+
+- **Check what is already known.** If `CLAUDE.md` in this folder has a `**Decision model:**`
+  line (the Campaign Engine writes one), say what it says and offer to use the same answer.
+- **No:** leave `**Decision model:** none` in `quality-gates.md` and move on.
+- **Yes:** set the line to `jev`, `clef` or `both`. Then run
+  `bash "${CLAUDE_PLUGIN_ROOT}/plugin/decision-model.sh" check` and say which models have a
+  key. For one that does not: tell the user to open `~/.config/decision-models.env`
+  themselves and add `TYPESAFE_API_KEY` for Jev (from console.typesafe.ai/keys), or
+  `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_AUTH_TOKEN` for Clef (a Cloudflare API token made
+  from the Workers AI template). **Never ask them to paste a key into the chat.** Run the
+  check again when they say it is done.
+- **They want no gates at all:** set `**Gates:** off`. Say they can turn it back on in that
+  file.
+- **They use a different model for checks:** say the script supports Jev and Clef today,
+  record `none`, and note that Claude, or whichever model they run the engine with, does the
+  checking.
+
+This is asked once. On a later run of setup, say what is set and ask only if they want to
+change it.
+
 ## Step 0: Ask what they already have
 
 Before any detail questions, ask the user whether they have existing material that
@@ -215,7 +250,9 @@ no `{{REPLACE_ME}}` tokens remain in it. When every file in `projects/content-en
 2. Tell the user setup is complete and the engine is unlocked.
 3. Show them their first command:
 
-   > You are ready. Write your first article with:
+   > You are ready. Find what to write first with:
+   > `/content-engine:opportunities`
+   > Or write an article on a topic you already have with:
    > `/content-engine:blog-pipeline "your topic"`
    > Or refresh an existing one with:
    > `/content-engine:update-pipeline "the url"`
