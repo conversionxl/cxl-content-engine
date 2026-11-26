@@ -26,14 +26,28 @@ the update focused instead of rewriting things that were fine.
    they still influence buyers and get cited by answer engines even as sessions fall. Do not
    treat a traffic dip as proof the page failed. Note whether the goal of this refresh is
    traffic, citations and brand representation, or conversion, because that changes the edits.
-4. Fold in the user's steering. If they said focus on X or leave Y alone, that wins.
-5. Set clear priorities across the audits that follow: outdated claims, missing product or
+4. **Read the page's own search data, if you have it.** If Search Console is `on` in
+   `projects/content-engine/your-setup/data-sources.md`, or the page appears in an export in
+   `projects/content-engine/inputs/search-console/` or in the latest file in
+   `projects/content-engine/content/opportunities/`, pull its top queries with clicks,
+   impressions, CTR and position, and say which case this is:
+   - **Seen but not clicked** (high impressions, position 1 to 10, low CTR): the title and
+     description are the first fix. Note it for the `title-and-meta` skill and keep the body
+     edits light.
+   - **Close to winning** (position 5 to 20): depth, structure and freshness are the job.
+   - **Losing ground** (clicks or impressions falling): find what changed in the results
+     before deciding what to rewrite.
+   - **Queries with no section** (impressions on a query the article barely covers): add
+     them to the topic gaps.
+   With no search data, say so and skip this step. Never estimate the numbers.
+5. Fold in the user's steering. If they said focus on X or leave Y alone, that wins.
+6. Set clear priorities across the audits that follow: outdated claims, missing product or
    feature mentions, and topic gaps versus the current SERP and answer engines.
-6. Note anything off-limits: sections the user does not want touched, a voice or angle to
+7. Note anything off-limits: sections the user does not want touched, a voice or angle to
    preserve.
 
 ## Output
 
 Write to `projects/content-engine/content/updates/0-guidance/{slug}.md`: the goal of this refresh, the priorities
-in order, and any do-not-touch notes. The audit skills read this so they pull in one
+in order, the search data case if there is one, and any do-not-touch notes. The audit skills read this so they pull in one
 direction.

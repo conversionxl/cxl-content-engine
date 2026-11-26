@@ -89,6 +89,8 @@ folded into this engine where it covered ground the pipeline did not:
 - **`/content-engine:repurpose`** (command) and the skills **`repurpose-carousel`**,
   **`repurpose-video`** and **`repurpose-newsletter`**: rebuild a finished article for other
   platforms.
+- **`update-guidance`** now reads the page's own search data first, so a refresh starts from
+  the right fix: the title, the depth, or a missing section.
 - **`verify-claims`** gained his claim labels and six quality checks, so there is still one
   gate before the preview.
 
